@@ -4,10 +4,10 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const Tab = createBottomTabNavigator();
 
-import HomeScreen from "../views/HomeScreen";
-import MapScreen from "../views/MapScreen";
-import ScoreScreen from "../views/ScoreScreen";
-import UsersScreen from "../views/UsersScreen";
+import HomeScreen from "../screens/HomeScreen";
+import MapScreen from "../screens/MapScreen";
+import ScoreScreen from "../screens/ScoreScreen";
+import UsersScreen from "../screens/UsersScreen";
 
 const Tabs = () => {
   return (
@@ -34,7 +34,7 @@ const Tabs = () => {
           tabBarIcon: ({ focused }) => (
             <View>
               <Image
-                source={require("../assets/home.png")}
+                source={require("../assets/navbarIcons/home.png")}
                 resizeMode="contain"
                 style={{
                   width: 25,
@@ -54,7 +54,7 @@ const Tabs = () => {
           tabBarIcon: ({ focused }) => (
             <View>
               <Image
-                source={require("../assets/tree.png")}
+                source={require("../assets/navbarIcons/tree.png")}
                 resizeMode="contain"
                 style={{
                   width: 25,
@@ -74,7 +74,7 @@ const Tabs = () => {
           tabBarIcon: ({ focused }) => (
             <View>
               <Image
-                source={require("../assets/map.png")}
+                source={require("../assets/navbarIcons/map.png")}
                 resizeMode="contain"
                 style={{
                   width: 25,
@@ -94,7 +94,7 @@ const Tabs = () => {
           tabBarIcon: ({ focused }) => (
             <View>
               <Image
-                source={require("../assets/burgerMenu.png")}
+                source={require("../assets/navbarIcons/burgerMenu.png")}
                 resizeMode="contain"
                 style={{
                   width: 25,
