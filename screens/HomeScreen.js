@@ -24,7 +24,7 @@ const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.decorativeH1}>WELCOME BACK</Text>
-      <Text style={styles.decorativeH2}>{auth.currentUser?.username}!</Text>
+      <Text style={styles.decorativeH2}>{auth.currentUser?.email}!</Text>
       <TouchableOpacity onPress={handleSignOut} style={styles.button}>
         <Text style={styles.buttonText}>Sign out</Text>
       </TouchableOpacity>

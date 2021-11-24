@@ -75,6 +75,15 @@ const LoginScreen = () => {
           <Text style={styles.buttonOutlineText}>Register</Text>
         </TouchableOpacity>
       </View>
+
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>Login with Google</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>Log in with Facebook</Text>
+        </TouchableOpacity>
+      </View>
     </KeyboardAvoidingView>
   );
 };
@@ -107,6 +116,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#0782F9",
     width: "100%",
     padding: 15,
+    marginTop: 5,
     borderRadius: 10,
     alignItems: "center",
   },
