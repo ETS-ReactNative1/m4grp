@@ -1,24 +1,33 @@
+import { useNavigation } from "@react-navigation/core";
 import React from "react";
-import { SafeAreaView, Text, StyleSheet, StatusBar } from "react-native";
-import { IconButton } from "../components";
-import Firebase from "../config/firebase";
-import { AuthenticatedUserContext } from "../navigation/AuthenticatedUserProvider";
-
-const auth = Firebase.auth();
+import {
+  SafeAreaView,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  StatusBar,
+} from "react-native";
+import { auth } from "../config/firebase";
 
 const HomeScreen = () => {
-  const { user } = useContext(AuthenticatedUserContext);
-  const handleSignOut = async () => {
-    try {
-      await auth.signOut();
-    } catch (error) {
-      console.log(error);
-    }
+  const navigation = useNavigation();
+
+  const handleSignOut = () => {
+    auth
+      .signOut()
+      .then(() => {
+        navigation.replace("Login");
+      })
+      .catch((error) => alert(error.message));
   };
+
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.decorativeH1}>WELCOME BACK</Text>
-      <Text style={styles.decorativeH2}>{user.email}!</Text>
+      <Text style={styles.decorativeH2}>{auth.currentUser?.username}!</Text>
+      <TouchableOpacity onPress={handleSignOut} style={styles.button}>
+        <Text style={styles.buttonText}>Sign out</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };
