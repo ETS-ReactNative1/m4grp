@@ -30,6 +30,7 @@ const Tabs = () => {
         name="Home"
         component={HomeScreen}
         options={{
+          headerShown: false,
           tabBarIcon: ({ focused }) => (
             <View>
               <Image
@@ -49,6 +50,7 @@ const Tabs = () => {
         name="Score"
         component={ScoreScreen}
         options={{
+          headerShown: false,
           tabBarIcon: ({ focused }) => (
             <View>
               <Image
@@ -65,13 +67,14 @@ const Tabs = () => {
         }}
       />
       <Tab.Screen
-        name="Uesrs"
-        component={UsersScreen}
+        name="Map"
+        component={MapScreen}
         options={{
+          headerShown: false,
           tabBarIcon: ({ focused }) => (
             <View>
               <Image
-                source={require("../assets/users.png")}
+                source={require("../assets/map.png")}
                 resizeMode="contain"
                 style={{
                   width: 25,
@@ -84,13 +87,14 @@ const Tabs = () => {
         }}
       />
       <Tab.Screen
-        name="Map"
-        component={MapScreen}
+        name="Users"
+        component={UsersScreen}
         options={{
+          headerShown: false,
           tabBarIcon: ({ focused }) => (
             <View>
               <Image
-                source={require("../assets/map.png")}
+                source={require("../assets/burgerMenu.png")}
                 resizeMode="contain"
                 style={{
                   width: 25,
