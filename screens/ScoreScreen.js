@@ -4,8 +4,8 @@ import { View, Text, Button, StyleSheet } from "react-native";
 const ScoreScreen = () => {
   return (
     <View style={styles.container}>
-      <Text>Typpi</Text>
-      <Button title="Click here" onPress={() => alert("Ragnar lolololol")} />
+      <Text>Score Screen</Text>
+      <Button title="Click here" onPress={() => alert("Score screen alert")} />
     </View>
   );
 };
