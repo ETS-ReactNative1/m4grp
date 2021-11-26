@@ -1,15 +1,11 @@
-// import React from "react";
-// import Tabs from "./components/NavBar";
-
-// export default App = () => {
-//   return <Tabs />;
-// };
-
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "./screens/LoginScreen";
 import NavBar from "./components/NavBar";
+import QrCodeScannerScreen from "./screens/QrScannerScreen";
+import { LogBox } from "react-native";
+LogBox.ignoreLogs(["AsyncStorage"]);
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +19,7 @@ export default App = () => {
           component={LoginScreen}
         />
         <Stack.Screen name="App" component={NavBar} />
+        <Stack.Screen name="QrScanner" component={QrCodeScannerScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

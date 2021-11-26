@@ -5,6 +5,7 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
+  View,
   StatusBar,
 } from "react-native";
 import { auth } from "../config/firebase";
@@ -28,12 +29,23 @@ const HomeScreen = () => {
       <TouchableOpacity onPress={handleSignOut} style={styles.button}>
         <Text style={styles.buttonText}>Sign out</Text>
       </TouchableOpacity>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.replace("QrScanner");
+          }}
+          style={styles.QrBtn}
+        >
+          <Text style={styles.QrBtnText}>QR</Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 };
 
 export default HomeScreen;
 
+// Stylesheet
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -56,5 +68,19 @@ const styles = StyleSheet.create({
     lineHeight: 29,
     fontWeight: "normal",
     textAlign: "left",
+  },
+  QrBtn: {
+    backgroundColor: "#fff",
+    borderColor: "#3A5046",
+    borderWidth: 2,
+    borderRadius: 40,
+    height: 50,
+    width: 50,
+    marginTop: 10,
+    justifyContent: "center",
+  },
+  QrBtnText: {
+    color: "#3A5046",
+    textAlign: "center",
   },
 });
