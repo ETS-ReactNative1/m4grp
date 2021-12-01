@@ -8,6 +8,7 @@ import {
   StatusBar,
 } from "react-native";
 import { auth } from "../config/firebase";
+import PointsArea from "../components/PointsArea";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -25,6 +26,7 @@ const HomeScreen = () => {
     <SafeAreaView style={styles.container}>
       <Text style={styles.decorativeH1}>WELCOME BACK</Text>
       <Text style={styles.decorativeH2}>{auth.currentUser?.email}!</Text>
+      <PointsArea points={100} boxes={10} />
       <TouchableOpacity onPress={handleSignOut} style={styles.button}>
         <Text style={styles.buttonText}>Sign out</Text>
       </TouchableOpacity>
