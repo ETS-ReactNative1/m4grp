@@ -5,6 +5,8 @@ import LoginScreen from "./screens/LoginScreen";
 import NavBar from "./components/NavBar";
 import QrCodeScannerScreen from "./screens/QrScannerScreen";
 import { LogBox } from "react-native";
+
+// suppressing a warning that is showing because of some default options in expo
 LogBox.ignoreLogs(["AsyncStorage"]);
 
 const Stack = createNativeStackNavigator();
