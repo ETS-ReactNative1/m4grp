@@ -1,7 +1,10 @@
 import React from "react";
-import { StyleSheet, View, Text, Image } from "react-native";
+import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/core";
 
 const PointsArea = (props) => {
+  const navigation = useNavigation();
+
   return (
     <>
       <View style={styles.container}>
@@ -17,10 +20,16 @@ const PointsArea = (props) => {
         </View>
         <View style={styles.VL} />
         <View style={styles.innerContainer}>
-          <Image
-            source={require("../assets/users.png")}
-            style={{ tintColor: "#3A5046" }}
-          />
+          <TouchableOpacity
+            onPress={() => {
+              navigation.push("Community");
+            }}
+          >
+            <Image
+              source={require("../assets/users.png")}
+              style={{ tintColor: "#3A5046" }}
+            />
+          </TouchableOpacity>
         </View>
         <View style={styles.VL} />
       </View>

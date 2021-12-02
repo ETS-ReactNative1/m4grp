@@ -1,5 +1,5 @@
 import React from "react";
-import { Pressable, Text, View, Image } from "react-native";
+import { View, Image } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const Tab = createBottomTabNavigator();
