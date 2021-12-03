@@ -2,6 +2,8 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "./screens/LoginScreen";
+import SignupScreen from "./screens/SignupScreen";
+import StartScreen from "./screens/StartScreen";
 import QrCodeScannerScreen from "./screens/QrScannerScreen";
 import CommunityScreen from "./screens/CommunityScreen";
 import NavBar from "./components/NavBar";
@@ -12,7 +14,9 @@ LogBox.ignoreLogs(["AsyncStorage"]);
 
 const Stack = createNativeStackNavigator();
 
+
 export default App = () => {
+
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -21,11 +25,12 @@ export default App = () => {
         }}
       >
         <Stack.Screen
-          options={{ headerShown: false }}
-          name="Login"
-          component={LoginScreen}
+          name="StartScreen"
+          component={StartScreen}
         />
         <Stack.Screen name="App" component={NavBar} />
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="SignUp" component={SignupScreen} />
         <Stack.Screen name="QrScanner" component={QrCodeScannerScreen} />
         <Stack.Screen name="Community" component={CommunityScreen} />
       </Stack.Navigator>
