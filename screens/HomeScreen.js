@@ -28,13 +28,17 @@ const HomeScreen = () => {
       <Text style={styles.decorativeH1}>WELCOME BACK</Text>
       <Text style={styles.decorativeH2}>{auth.currentUser?.email}!</Text>
       <PointsArea points={100} boxes={10} />
-      <TouchableOpacity onPress={handleSignOut} style={styles.button}>
-        <Text style={styles.buttonText}>Sign out</Text>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate("LocationTest");
+        }}
+      >
+        <Text style={styles.buttonText}>Location Test Screen</Text>
       </TouchableOpacity>
       <View style={styles.buttonContainer}>
         <TouchableOpacity
           onPress={() => {
-            navigation.replace("QrScanner");
+            navigation.navigate("QrScanner");
           }}
           style={styles.QrBtn}
         >

@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "./screens/LoginScreen";
 import QrCodeScannerScreen from "./screens/QrScannerScreen";
 import CommunityScreen from "./screens/CommunityScreen";
+import LocationTestScreen from "./screens/LocationTestScreen";
 import NavBar from "./components/NavBar";
 import { LogBox } from "react-native";
 
@@ -28,6 +29,7 @@ export default App = () => {
         <Stack.Screen name="App" component={NavBar} />
         <Stack.Screen name="QrScanner" component={QrCodeScannerScreen} />
         <Stack.Screen name="Community" component={CommunityScreen} />
+        <Stack.Screen name="LocationTest" component={LocationTestScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
