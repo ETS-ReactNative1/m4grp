@@ -21,11 +21,7 @@ export default App = () => {
           headerShown: false,
         }}
       >
-        <Stack.Screen
-          options={{ headerShown: false }}
-          name="Login"
-          component={LoginScreen}
-        />
+        <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="App" component={NavBar} />
         <Stack.Screen name="QrScanner" component={QrCodeScannerScreen} />
         <Stack.Screen name="Community" component={CommunityScreen} />
