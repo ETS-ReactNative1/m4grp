@@ -15,15 +15,6 @@ import Sun from "../components/Sun";
 const HomeScreen = () => {
   const navigation = useNavigation();
 
-  const handleSignOut = () => {
-    auth
-      .signOut()
-      .then(() => {
-        navigation.replace("Login");
-      })
-      .catch((error) => alert(error.message));
-  };
-
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.decorativeH1}>WELCOME BACK</Text>

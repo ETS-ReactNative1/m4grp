@@ -1,4 +1,4 @@
-// ---------- THIS IS THE LOGIN SCREEN ---------- \\ 
+// ---------- THIS IS THE LOGIN SCREEN ---------- \\
 import { useNavigation } from "@react-navigation/core";
 import React, { useEffect, useState } from "react";
 import {
@@ -8,25 +8,18 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-  Image,
-  Button,
 } from "react-native";
 import { auth } from "../config/firebase";
-// Fonts
-import {useFonts} from "expo-font"
-import {AppLoading} from "expo-app-loading"
 // Icons
-import { Icon } from 'react-native-elements'
+import { Icon } from "react-native-elements";
 
 import Betulaleaf from "../components/Images/Betulaleaf";
-
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const navigation = useNavigation();
-
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -38,16 +31,6 @@ const LoginScreen = () => {
     return unsubscribe;
   }, []);
 
-  const handleSignUp = () => {
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then((userCredentials) => {
-        const user = userCredentials.user;
-        console.log("Registered with:", user.email);
-      })
-      .catch((error) => alert(error.message));
-  };
-
   const handleLogin = () => {
     auth
       .signInWithEmailAndPassword(email, password)
@@ -58,51 +41,30 @@ const LoginScreen = () => {
       .catch((error) => alert(error.message));
   };
 
-  
-  // For fonts
-  let [fontsLoaded] = useFonts({
-    "bungee": require("./../assets/fonts/Bungee.ttf"),
-    "bungeeHairline": require("./../assets/fonts/BungeeHairline.ttf"),
-    "degularDisplay": require("./../assets/fonts/DegularDisplay-Light.otf"),
-  })
-  
   return (
     <View style={styles.body}>
-    <KeyboardAvoidingView style={styles.container} >
-    
-      <Text style={styles.headerText}> Log in with </Text>
+      <KeyboardAvoidingView style={styles.container}>
+        <Text style={styles.headerText}> Log in with </Text>
 
-      <View style={styles.hyperlinkButtons}>
+        <View style={styles.hyperlinkButtons}>
           <TouchableOpacity style={styles.soMeButtons}>
             <View style={styles.iconContainer}>
-              <Icon name='facebook'  
-                    type='font-awesome'
-                    color='#30361E' 
-              />
+              <Icon name="facebook" type="font-awesome" color="#30361E" />
             </View>
-              <Text 
-                style={styles.soMeButtonText}>
-              facebook
-              </Text>
+            <Text style={styles.soMeButtonText}>facebook</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.soMeButtons}>
-          <View style={styles.iconContainer}>
-              <Icon name='google'  
-                    type='font-awesome'
-                    color='#30361E' 
-              />
+            <View style={styles.iconContainer}>
+              <Icon name="google" type="font-awesome" color="#30361E" />
             </View>
-              <Text 
-                style={styles.soMeButtonText}> 
-              google
-              </Text>
+            <Text style={styles.soMeButtonText}>google</Text>
           </TouchableOpacity>
-      </View>
-    
-        <View>
-          <Text style={styles.emailLoginText}>Or log in with Email</Text> 
         </View>
-    
+
+        <View>
+          <Text style={styles.emailLoginText}>Or log in with Email</Text>
+        </View>
+
         <View style={styles.inputContainer}>
           <TextInput
             placeholder="Email"
@@ -120,52 +82,42 @@ const LoginScreen = () => {
         </View>
 
         <View style={styles.buttonContainer}>
-          <TouchableOpacity 
-            onPress={handleLogin}
-            style={styles.button}>
-              <View style={styles.loginContainer}>
-                <Icon 
-                  name='arrow-right'
-                  type='font-awesome'
-                  color='#30361E'
-                  size = {35}
-                />
-              </View>
+          <TouchableOpacity onPress={handleLogin} style={styles.button}>
+            <View style={styles.loginContainer}>
+              <Icon
+                name="arrow-right"
+                type="font-awesome"
+                color="#30361E"
+                size={35}
+              />
+            </View>
           </TouchableOpacity>
         </View>
         <View style={styles.hyperlinkContainer}>
           <Text> New? </Text>
-          <TouchableOpacity 
-              onPress={() => {
-                navigation.navigate("SignUp")
-              }}
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate("SignUp");
+            }}
           >
-            <Text
-              style={[styles.hyperlink]}
-            > 
-            Click here</Text>
+            <Text style={[styles.hyperlink]}>Click here</Text>
           </TouchableOpacity>
           <Text> To sign up! </Text>
-        </View> 
-    </KeyboardAvoidingView>
-    <View style={styles.betulaleaf}>
-      {/* Leaf */}
-      <Betulaleaf />
+        </View>
+      </KeyboardAvoidingView>
+      <View style={styles.betulaleaf}>
+        {/* Leaf */}
+        <Betulaleaf />
+      </View>
     </View>
-    </View>
-
-
   );
 };
 
 export default LoginScreen;
 
 const styles = StyleSheet.create({
-  betulaleaf: { 
-    transform: [
-      {rotateY: "0deg"},
-      {rotateZ: "-69.72deg"}
-    ],
+  betulaleaf: {
+    transform: [{ rotateY: "0deg" }, { rotateZ: "-69.72deg" }],
     position: "absolute",
     marginTop: 75,
     marginLeft: 270,
@@ -192,7 +144,7 @@ const styles = StyleSheet.create({
     marginTop: 100,
     color: "rgba(48, 54, 30, 1)",
     fontFamily: "degularDisplay",
-    fontSize: 24, 
+    fontSize: 24,
   },
   inputContainer: {
     marginTop: 10,
@@ -218,19 +170,19 @@ const styles = StyleSheet.create({
     marginTop: 10,
     alignItems: "center",
   },
-loginContainer: {
+  loginContainer: {
     justifyContent: "center",
     borderColor: "#30361E",
     color: "#30361E",
     borderWidth: 2.6,
     borderRadius: 99,
-    height: 80, 
+    height: 80,
     width: 80,
   },
   hyperlinkContainer: {
     marginTop: 60,
     flexDirection: "row",
-    fontFamily: "degularDisplay"
+    fontFamily: "degularDisplay",
   },
   hyperlink: {
     color: "#30361E",
@@ -272,4 +224,3 @@ loginContainer: {
     marginLeft: 10,
   },
 });
-
