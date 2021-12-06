@@ -17,8 +17,8 @@ import { auth } from "../config/firebase";
 // Fonts
 import {useFonts} from "expo-font"
 import {AppLoading} from "expo-app-loading"
-// Icons
-import { Icon } from 'react-native-elements'
+
+import FraeLogo from "../components/Images/FraeLogo";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
@@ -68,9 +68,7 @@ const LoginScreen = () => {
   return (
     <View style={styles.body}>
       <View style={styles.logo}>
-        <Image
-            source={require("../assets/picref/startLogo.png")}
-          />
+        <FraeLogo />
       </View>
 
         <View style={styles.buttonContainer}>
@@ -124,14 +122,14 @@ const styles = StyleSheet.create({
     borderWidth: 2.3,
     height: 60,
     width: 190,
-    marginBottom: 10,
+    marginBottom: 15,
     borderRadius: 99,
     alignItems: "center",
     justifyContent: "center",
   },   SignInButtonText: {
         fontFamily: "degularDisplay",
         color: "#30361E",
-        fontSize: 26,
+        fontSize: 28,
         marginLeft: 10,
   },
   SignUpButton: {
@@ -146,7 +144,7 @@ const styles = StyleSheet.create({
   },   SignUpButtonText: {
         fontFamily: "degularDisplay",
         color: "#FFFDF6",
-        fontSize: 26,
+        fontSize: 28,
         marginLeft: 10,
   },
 
