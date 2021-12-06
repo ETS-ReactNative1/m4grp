@@ -78,7 +78,9 @@ const Sun = () => {
       const data = percentage(currentTimeToSeconds(), sunSetSecs);
       console.log(data);
       setPercentOfDay(data);
-      setSunDisplay("block");
+      percentOfDay > 0 && percentOfDay < 100
+        ? setSunDisplay("flex")
+        : setSunDisplay("none");
     }
   }, [sunData]);
 
