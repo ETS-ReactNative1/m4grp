@@ -1,11 +1,11 @@
 import React from "react";
-import { View, Text, Button, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
+import SignOutBtn from "../components/SignOutBtn";
 
 const UsersScreen = () => {
   return (
     <View style={styles.container}>
-      <Text>Users Screen</Text>
-      <Button title="Click here" onPress={() => alert("Button Clicked!")} />
+      <SignOutBtn />
     </View>
   );
 };
