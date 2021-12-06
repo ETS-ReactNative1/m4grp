@@ -1,4 +1,6 @@
-// ---------- THIS IS THE LOGIN SCREEN ---------- \\ 
+
+// ---------- THIS IS THE SIGNUP SCREEN: ---------- \\
+
 import { useNavigation } from "@react-navigation/core";
 import React, { useEffect, useState } from "react";
 import {
@@ -10,7 +12,6 @@ import {
   View,
   Image,
   Button,
-
 } from "react-native";
 import { auth } from "../config/firebase";
 // Fonts
@@ -56,19 +57,18 @@ const LoginScreen = () => {
       .catch((error) => alert(error.message));
   };
 
-  
   // For fonts
   let [fontsLoaded] = useFonts({
     "bungee": require("./../assets/fonts/Bungee.ttf"),
     "bungeeHairline": require("./../assets/fonts/BungeeHairline.ttf"),
     "degularDisplay": require("./../assets/fonts/DegularDisplay-Light.otf"),
   })
-  
+
   return (
     <View style={styles.body}>
     <KeyboardAvoidingView style={styles.container} >
     
-      <Text style={styles.headerText}> Log in with </Text>
+      <Text style={styles.headerText}> Sign Up with </Text>
 
       <View style={styles.hyperlinkButtons}>
           <TouchableOpacity style={styles.soMeButtons}>
@@ -98,7 +98,7 @@ const LoginScreen = () => {
       </View>
     
         <View>
-          <Text style={styles.emailLoginText}>Or log in with Email</Text> 
+          <Text style={styles.emailLoginText}>Or make a new account</Text> 
         </View>
     
         <View style={styles.inputContainer}>
@@ -110,6 +110,13 @@ const LoginScreen = () => {
           />
           <TextInput
             placeholder="Password"
+            value={password}
+            onChangeText={(text) => setPassword(text)}
+            style={styles.input}
+            secureTextEntry
+          />
+                    <TextInput
+            placeholder="Repeat Password"
             value={password}
             onChangeText={(text) => setPassword(text)}
             style={styles.input}
@@ -132,16 +139,15 @@ const LoginScreen = () => {
           </TouchableOpacity>
         </View>
         <View style={styles.hyperlinkContainer}>
-          <Text> New? </Text>
+          <Text> Have an accoun?</Text>
           <TouchableOpacity 
             onpress={handleSignUp} 
           >
             <Text
               style={[styles.hyperlink]}
             > 
-            Click here</Text>
+            Log in</Text>
           </TouchableOpacity>
-          <Text> To sign up! </Text>
         </View> 
     </KeyboardAvoidingView>
     <View style={styles.betulaleaf}>
@@ -166,7 +172,7 @@ const styles = StyleSheet.create({
     marginLeft: 255,
   },
   body: {
-    backgroundColor: "#30361E",
+    backgroundColor: "black",
     flex: 1,
   },
   container: {
@@ -179,10 +185,10 @@ const styles = StyleSheet.create({
     marginTop: 200,
   },
   headerText: {
-    color: "#30361E",
+    color: "rgba(48, 54, 30, 1)",
     fontFamily: "degularDisplay",
     fontSize: 40,
-    marginTop: 50,
+    marginTop: 30,
     marginBottom: 20,
   },
   emailLoginText: {
@@ -219,7 +225,7 @@ loginContainer: {
   },
   hyperlinkContainer: {
     flexDirection: "row",
-    marginTop: 40,
+    marginTop: 60,
   },
   hyperlink: {
     color: "#30361E",
@@ -260,4 +266,3 @@ loginContainer: {
     marginLeft: 10,
   },
 });
-
