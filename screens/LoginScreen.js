@@ -10,7 +10,6 @@ import {
   View,
   Image,
   Button,
-
 } from "react-native";
 import { auth } from "../config/firebase";
 // Fonts
@@ -18,6 +17,9 @@ import {useFonts} from "expo-font"
 import {AppLoading} from "expo-app-loading"
 // Icons
 import { Icon } from 'react-native-elements'
+
+import Betulaleaf from "../components/Images/Betulaleaf";
+
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
@@ -134,7 +136,9 @@ const LoginScreen = () => {
         <View style={styles.hyperlinkContainer}>
           <Text> New? </Text>
           <TouchableOpacity 
-            onpress={handleSignUp} 
+              onPress={() => {
+                navigation.navigate("SignUp")
+              }}
           >
             <Text
               style={[styles.hyperlink]}
@@ -146,9 +150,7 @@ const LoginScreen = () => {
     </KeyboardAvoidingView>
     <View style={styles.betulaleaf}>
       {/* Leaf */}
-      <Image
-        source={require("../assets/picref/betulaleaf.png")}
-      />
+      <Betulaleaf />
     </View>
     </View>
 
@@ -159,11 +161,14 @@ const LoginScreen = () => {
 export default LoginScreen;
 
 const styles = StyleSheet.create({
-
   betulaleaf: { 
+    transform: [
+      {rotateY: "0deg"},
+      {rotateZ: "-69.72deg"}
+    ],
     position: "absolute",
-    marginTop: 115,
-    marginLeft: 255,
+    marginTop: 75,
+    marginLeft: 270,
   },
   body: {
     backgroundColor: "#30361E",
@@ -174,38 +179,41 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 32,
     backgroundColor: "#FFFDF6",
     flex: 1,
-    justifyContent: "center",
     alignItems: "center",
-    marginTop: 200,
+    marginTop: 210,
   },
   headerText: {
     color: "#30361E",
     fontFamily: "degularDisplay",
     fontSize: 40,
-    marginTop: 50,
-    marginBottom: 20,
+    marginTop: 60,
   },
   emailLoginText: {
+    marginTop: 100,
     color: "rgba(48, 54, 30, 1)",
     fontFamily: "degularDisplay",
     fontSize: 24, 
-    marginBottom: 20,
   },
   inputContainer: {
+    marginTop: 10,
+    marginRight: 60,
     width: "80%",
   },
   input: {
-    backgroundColor: "#E5E5E5",
-    marginBottom: 10,
+    backgroundColor: "#FFFDF6",
+    color: "red", // Needs checking
+    borderWidth: 2,
+    marginBottom: 15,
+    height: 60,
+    width: 400,
     paddingHorizontal: 15,
     paddingVertical: 10,
-    borderRadius: 10,
+    borderRadius: 16,
     marginTop: 5,
   },
   button: {
-    marginTop: 15,
-    marginBottom: 40,
-    marginLeft: 250,
+    marginLeft: 320,
+    marginTop: 10,
     alignItems: "center",
   },
 loginContainer: {
@@ -218,8 +226,9 @@ loginContainer: {
     width: 80,
   },
   hyperlinkContainer: {
+    marginTop: 60,
     flexDirection: "row",
-    marginTop: 40,
+    fontFamily: "degularDisplay"
   },
   hyperlink: {
     color: "#30361E",
@@ -243,11 +252,11 @@ loginContainer: {
     borderColor: "#30361E",
     color: "#30361E",
     borderWidth: 2.3,
-    height: 58,
-    width: 180,
+    height: 55,
+    width: 190,
+    marginTop: 20,
     marginRight: 10,
     marginLeft: 10,
-    marginBottom: 100,
     borderRadius: 99,
     alignItems: "center",
     paddingLeft: 6,
@@ -257,6 +266,7 @@ loginContainer: {
     fontFamily: "degularDisplay",
     color: "#30361E",
     fontSize: 22,
+    letterSpacing: 1.5,
     marginLeft: 10,
   },
 });
