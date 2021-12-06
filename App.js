@@ -19,20 +19,12 @@ export default App = () => {
 
   return (
     <NavigationContainer>
-<<<<<<< HEAD
       
        <Stack.Navigator
         screenOptions={{
         headerShown: false,
         }}>  
 
-=======
-      <Stack.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}
-      >
->>>>>>> 3ea9852bcf9487a8f3093cccaaccfa79e53d7a2d
         <Stack.Screen
           name="StartScreen"
           component={StartScreen}

@@ -206,7 +206,9 @@ const styles = StyleSheet.create({
   },
   input: {
     backgroundColor: "#FFFDF6",
-    color: "red", // Needs checking
+    color: "#30361E",
+    fontFamily: "degularDisplay",
+    fontSize: 18,
     borderWidth: 2,
     marginBottom: 15,
     height: 60,
