@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { auth } from "../config/firebase";
 import PointsArea from "../components/PointsArea";
+import Sun from "../components/Sun";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -28,13 +29,6 @@ const HomeScreen = () => {
       <Text style={styles.decorativeH1}>WELCOME BACK</Text>
       <Text style={styles.decorativeH2}>{auth.currentUser?.email}!</Text>
       <PointsArea points={100} boxes={10} />
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate("LocationTest");
-        }}
-      >
-        <Text style={styles.buttonText}>Location Test Screen</Text>
-      </TouchableOpacity>
       <View style={styles.buttonContainer}>
         <TouchableOpacity
           onPress={() => {
@@ -45,6 +39,7 @@ const HomeScreen = () => {
           <Text style={styles.QrBtnText}>QR</Text>
         </TouchableOpacity>
       </View>
+      <Sun />
     </SafeAreaView>
   );
 };
