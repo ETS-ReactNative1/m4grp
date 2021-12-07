@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Image } from "react-native";
+import { View, Image,} from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const Tab = createBottomTabNavigator();
@@ -9,22 +9,21 @@ import MapScreen from "../screens/MapScreen";
 import ScoreScreen from "../screens/ScoreScreen";
 import UsersScreen from "../screens/UsersScreen";
 
+// Icons
+import { Icon } from 'react-native-elements'
+
 const Tabs = () => {
   return (
     <Tab.Navigator
-      screenOptions={{
-        tabBarShowLabel: false,
-        style: {
-          position: "absolute",
-          bottom: 25,
-          left: 20,
-          right: 20,
-          elevation: 0,
-          backgroundColor: "#fff",
-          borderRadius: 15,
-          height: 90,
-        },
-      }}
+    screenOptions={{
+      tabBarShowLabel: false, 
+      tabBarStyle: { 
+        position: 'relative',
+        evaluation: 0,
+        backgroundColor: "#FFFDF6", 
+        height: 75,
+      },
+    }}
     >
       <Tab.Screen
         name="Home"
@@ -32,15 +31,21 @@ const Tabs = () => {
         options={{
           headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <View>
-              <Image
-                source={require("../assets/navbarIcons/home.png")}
-                resizeMode="contain"
-                style={{
-                  width: 25,
-                  height: 25,
-                  tintColor: focused ? "#848A59" : "#3A5046",
-                }}
+            <View
+            style={{
+              backgroundColor: focused ? "#3A5046" : "#FFFDF6",
+              height: 50,
+              width: 78,
+              borderRadius: 16,
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+            > 
+              <Icon
+                name="home"
+                type="entypo"
+                color={focused ? "#FFFDF6" : "#3A5046"}
+                size={35}
               />
             </View>
           ),
@@ -52,15 +57,21 @@ const Tabs = () => {
         options={{
           headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <View>
-              <Image
-                source={require("../assets/navbarIcons/tree.png")}
-                resizeMode="contain"
-                style={{
-                  width: 25,
-                  height: 25,
-                  tintColor: focused ? "#848A59" : "#3A5046",
-                }}
+            <View
+            style={{
+              backgroundColor: focused ? "#3A5046" : "#FFFDF6",
+              height: 50,
+              width: 78,
+              borderRadius: 16,
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+            > 
+              <Icon
+                name="tree"
+                type="font-awesome-5"
+                color={focused ? "#FFFDF6" : "#3A5046"}
+                size={40}
               />
             </View>
           ),
@@ -72,15 +83,21 @@ const Tabs = () => {
         options={{
           headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <View>
-              <Image
-                source={require("../assets/navbarIcons/map.png")}
-                resizeMode="contain"
-                style={{
-                  width: 25,
-                  height: 25,
-                  tintColor: focused ? "#848A59" : "#3A5046",
-                }}
+            <View
+            style={{
+              backgroundColor: focused ? "#3A5046" : "#FFFDF6",
+              height: 50,
+              width: 78,
+              borderRadius: 16,
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+            >
+              <Icon
+                name="map-marked-alt"
+                type="font-awesome-5"
+                color={focused ? "#FFFDF6" : "#3A5046"}
+                size={38}
               />
             </View>
           ),
@@ -92,15 +109,21 @@ const Tabs = () => {
         options={{
           headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <View>
-              <Image
-                source={require("../assets/navbarIcons/burgerMenu.png")}
-                resizeMode="contain"
-                style={{
-                  width: 25,
-                  height: 25,
-                  tintColor: focused ? "#848A59" : "#3A5046",
-                }}
+            <View
+            style={{
+              backgroundColor: focused ? "#3A5046" : "#FFFDF6",
+              height: 50,
+              width: 78,
+              borderRadius: 16,
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+            >
+              <Icon
+                name="cog"
+                type="font-awesome-5"
+                color={focused ? "#FFFDF6" : "#3A5046"}
+                size={38}
               />
             </View>
           ),
@@ -111,3 +134,6 @@ const Tabs = () => {
 };
 
 export default Tabs;
+
+
+
