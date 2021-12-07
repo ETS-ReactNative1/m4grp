@@ -8,10 +8,9 @@ import {
   View,
   StatusBar,
 } from "react-native";
-
 import { useNavigation } from "@react-navigation/core";
 import QrCodeScanner from "../components/QrCodeScanner";
-
+import BackButton from "../components/BackButton";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {useFonts} from "expo-font"
 
@@ -33,7 +32,6 @@ const QrScannerScreen = () => {
   })
 
   return (
-    <>
     <View style={styles.body}>
       <TouchableOpacity 
         onPress={() => {
@@ -69,8 +67,7 @@ const QrScannerScreen = () => {
     </View>
     <View style={styles.qrScannerCont}>  
       <QrCodeScanner/>
-    </View> 
-    </>
+    </View>
   );
 };
 

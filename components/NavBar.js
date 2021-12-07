@@ -8,6 +8,7 @@ import HomeScreen from "../screens/HomeScreen";
 import MapScreen from "../screens/MapScreen";
 import ScoreScreen from "../screens/ScoreScreen";
 import UsersScreen from "../screens/UsersScreen";
+import TreeInfoScreen from "../screens/TreeInfoScreen";
 
 const Tabs = () => {
   return (
@@ -47,8 +48,8 @@ const Tabs = () => {
         }}
       />
       <Tab.Screen
-        name="Score"
-        component={ScoreScreen}
+        name="TreeInfo"
+        component={TreeInfoScreen}
         options={{
           headerShown: false,
           tabBarIcon: ({ focused }) => (

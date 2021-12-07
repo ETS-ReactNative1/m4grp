@@ -10,37 +10,27 @@ import {
 } from "react-native";
 import { auth } from "../config/firebase";
 import PointsArea from "../components/PointsArea";
+import Sun from "../components/Sun";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
-
-  const handleSignOut = () => {
-    auth
-      .signOut()
-      .then(() => {
-        navigation.replace("Login");
-      })
-      .catch((error) => alert(error.message));
-  };
 
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.decorativeH1}>WELCOME BACK</Text>
       <Text style={styles.decorativeH2}>{auth.currentUser?.email}!</Text>
       <PointsArea points={100} boxes={10} />
-      <TouchableOpacity onPress={handleSignOut} style={styles.button}>
-        <Text style={styles.buttonText}>Sign out</Text>
-      </TouchableOpacity>
       <View style={styles.buttonContainer}>
         <TouchableOpacity
           onPress={() => {
-            navigation.replace("QrScanner");
+            navigation.navigate("QrScanner");
           }}
           style={styles.QrBtn}
         >
           <Text style={styles.QrBtnText}>QR</Text>
         </TouchableOpacity>
       </View>
+      <Sun />
     </SafeAreaView>
   );
 };

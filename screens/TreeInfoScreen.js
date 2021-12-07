@@ -1,16 +1,16 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
-import SignOutBtn from "../components/SignOutBtn";
+import { View, Text, Button, StyleSheet } from "react-native";
 
-const UsersScreen = () => {
+const TreeInfoScreen = () => {
   return (
     <View style={styles.container}>
-      <SignOutBtn />
+      <Text>Tree Info Screen</Text>
+      <Button title="Click here" onPress={() => alert("Tree info screen alert")} />
     </View>
   );
 };
 
-export default UsersScreen;
+export default TreeInfoScreen;
 
 const styles = StyleSheet.create({
   container: {
