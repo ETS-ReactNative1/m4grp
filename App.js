@@ -17,6 +17,7 @@ LogBox.ignoreLogs(["AsyncStorage"]);
 
 const Stack = createNativeStackNavigator();
 
+
 export default App = () => {
   // Loading fonts
   let [fontsLoaded] = useFonts({
