@@ -1,14 +1,13 @@
 import React from "react";
-import { View, Image } from "react-native";
+import { View, Image, Settings } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const Tab = createBottomTabNavigator();
 
 import HomeScreen from "../screens/HomeScreen";
 import MapScreen from "../screens/MapScreen";
-import ScoreScreen from "../screens/ScoreScreen";
-import UsersScreen from "../screens/UsersScreen";
 import TreeInfoScreen from "../screens/TreeInfoScreen";
+import SettingsScreen from "../screens/SettingsScreen";
 
 const Tabs = () => {
   return (
@@ -88,14 +87,14 @@ const Tabs = () => {
         }}
       />
       <Tab.Screen
-        name="Users"
-        component={UsersScreen}
+        name="Settings"
+        component={SettingsScreen}
         options={{
           headerShown: false,
           tabBarIcon: ({ focused }) => (
             <View>
               <Image
-                source={require("../assets/navbarIcons/burgerMenu.png")}
+                source={require("../assets/navbarIcons/cog.png")}
                 resizeMode="contain"
                 style={{
                   width: 25,
