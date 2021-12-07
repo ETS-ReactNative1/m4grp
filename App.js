@@ -8,6 +8,7 @@ import { useFonts } from "expo-font";
 // suppressing a warning that is showing because of some default options in expo
 LogBox.ignoreLogs(["AsyncStorage"]);
 
+
 export default App = () => {
   // Loading fonts
   let [fontsLoaded] = useFonts({
