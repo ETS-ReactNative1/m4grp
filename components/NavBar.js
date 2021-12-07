@@ -6,9 +6,8 @@ const Tab = createBottomTabNavigator();
 
 import HomeScreen from "../screens/HomeScreen";
 import MapScreen from "../screens/MapScreen";
-import ScoreScreen from "../screens/ScoreScreen";
-import UsersScreen from "../screens/UsersScreen";
 import TreeInfoScreen from "../screens/TreeInfoScreen";
+import SettingsScreen from "../screens/SettingsScreen";
 
 // Icons
 import { Icon } from 'react-native-elements'
@@ -84,8 +83,8 @@ const Tabs = () => {
         }}
       />
       <Tab.Screen
-        name="Users"
-        component={UsersScreen}
+        name="Settings"
+        component={SettingsScreen}
         options={{
           headerShown: false,
           tabBarIcon: ({ focused }) => (

@@ -8,6 +8,7 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  Dimensions,
 } from "react-native";
 import { auth } from "../config/firebase";
 
@@ -15,6 +16,8 @@ import { auth } from "../config/firebase";
 import { Icon } from "react-native-elements";
 
 import Betulaleaf from "../components/Images/Betulaleaf";
+
+const windowWidth = Dimensions.get("window").width;
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
@@ -112,7 +115,7 @@ const LoginScreen = () => {
           </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>
-      <View style={styles.betulaleaf}>
+      <View style={[styles.betulaleaf, { left: windowWidth - 150 }]}>
         {/* Leaf */}
         <Betulaleaf />
       </View>
@@ -127,7 +130,6 @@ const styles = StyleSheet.create({
     transform: [{ rotateY: "0deg" }, { rotateZ: "-69.72deg" }],
     position: "absolute",
     marginTop: 75,
-    marginLeft: 270,
   },
   body: {
     backgroundColor: "#30361E",
@@ -155,7 +157,7 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     marginTop: 10,
-    marginRight: 60,
+    alignItems: "center",
     width: "80%",
   },
   input: {
