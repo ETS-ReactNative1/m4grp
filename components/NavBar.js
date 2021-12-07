@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Image,} from "react-native";
+import { View, Image, StyleSheet} from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const Tab = createBottomTabNavigator();
@@ -32,14 +32,7 @@ const Tabs = () => {
           headerShown: false,
           tabBarIcon: ({ focused }) => (
             <View
-            style={{
-              backgroundColor: focused ? "#3A5046" : "#FFFDF6",
-              height: 50,
-              width: 78,
-              borderRadius: 16,
-              alignItems: "center",
-              justifyContent: "center",
-            }}
+            style={[styles.navbar, {backgroundColor: focused ? "#3A5046" : "#FFFDF6"}]}
             > 
               <Icon
                 name="home"
@@ -58,14 +51,7 @@ const Tabs = () => {
           headerShown: false,
           tabBarIcon: ({ focused }) => (
             <View
-            style={{
-              backgroundColor: focused ? "#3A5046" : "#FFFDF6",
-              height: 50,
-              width: 78,
-              borderRadius: 16,
-              alignItems: "center",
-              justifyContent: "center",
-            }}
+            style={[styles.navbar, {backgroundColor: focused ? "#3A5046" : "#FFFDF6"}]}
             > 
               <Icon
                 name="tree"
@@ -84,14 +70,7 @@ const Tabs = () => {
           headerShown: false,
           tabBarIcon: ({ focused }) => (
             <View
-            style={{
-              backgroundColor: focused ? "#3A5046" : "#FFFDF6",
-              height: 50,
-              width: 78,
-              borderRadius: 16,
-              alignItems: "center",
-              justifyContent: "center",
-            }}
+            style={[styles.navbar, {backgroundColor: focused ? "#3A5046" : "#FFFDF6"}]}
             >
               <Icon
                 name="map-marked-alt"
@@ -110,14 +89,7 @@ const Tabs = () => {
           headerShown: false,
           tabBarIcon: ({ focused }) => (
             <View
-            style={{
-              backgroundColor: focused ? "#3A5046" : "#FFFDF6",
-              height: 50,
-              width: 78,
-              borderRadius: 16,
-              alignItems: "center",
-              justifyContent: "center",
-            }}
+            style={[styles.navbar, {backgroundColor: focused ? "#3A5046" : "#FFFDF6"}]}
             >
               <Icon
                 name="cog"
@@ -135,5 +107,14 @@ const Tabs = () => {
 
 export default Tabs;
 
+const styles = StyleSheet.create({
+  navbar: {
+    height: 50,
+    width: 78,
+    borderRadius: 16,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
 
 
