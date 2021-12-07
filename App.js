@@ -1,4 +1,5 @@
 import React from "react";
+import { SafeAreaView } from "react-native";
 import Navigator from "./components/Navigator";
 import { LogBox } from "react-native";
 
@@ -7,7 +8,6 @@ import { useFonts } from "expo-font";
 
 // suppressing a warning that is showing because of some default options in expo
 LogBox.ignoreLogs(["AsyncStorage"]);
-
 
 export default App = () => {
   // Loading fonts
@@ -20,6 +20,10 @@ export default App = () => {
   if (!fontsLoaded) {
     return null;
   } else {
-    return <Navigator />;
+    return (
+      <SafeAreaView style={{ flex: 1 }}>
+        <Navigator />
+      </SafeAreaView>
+    );
   }
 };

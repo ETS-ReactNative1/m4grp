@@ -1,83 +1,33 @@
 import React from "react";
-import { 
-  Button, 
-  SafeAreaView,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-  StatusBar,
-} from "react-native";
-import { useNavigation } from "@react-navigation/core";
+import { Text, StyleSheet, View } from "react-native";
 import QrCodeScanner from "../components/QrCodeScanner";
 import BackButton from "../components/BackButton";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import {useFonts} from "expo-font"
-
-
-// Icons
-import { Icon } from 'react-native-elements';
-
-
-
-const Tab = createBottomTabNavigator();
 
 const QrScannerScreen = () => {
-  const navigation = useNavigation();
-    // For fonts
-  let [fontsLoaded] = useFonts({
-     "bungee": require("./../assets/fonts/Bungee.ttf"),
-     "bungeeHairline": require("./../assets/fonts/BungeeHairline.ttf"),
-     "degularDisplay": require("./../assets/fonts/DegularDisplay-Light.otf"),
-  })
-
   return (
-    <View style={styles.body}>
-      <TouchableOpacity 
-        onPress={() => {
-          navigation.replace("App");
-          }}
-        style={styles.backButtonContainer}>
-        <View style={styles.backButton}>
-        <Icon 
-          name='chevron-left'
-          type='font-awesome'
-          color='#fff'
-          size = {28}
-        />
-        <Text
-          style={styles.buttonText}
-        >
-          Til baka
-        </Text>
+    <>
+      <View style={styles.body}>
+        <View style={styles.backButtonContainer}>
+          <BackButton style={styles.backButtonContainer} />
         </View>
-      </TouchableOpacity>
-      <View
-        style={styles.qrCodeTextContainer}
-      >
-        <Text
-          style={styles.qrCodeText}
-        >
-          Skannaðu QR Kóðann hér
-        </Text> 
+        <View style={styles.qrCodeTextContainer}>
+          <Text style={styles.qrCodeText}>Skannaðu QR Kóðann hér</Text>
+        </View>
+        <View style={styles.scanbox}>{/* This is the scanbox */}</View>
       </View>
-        <View style={styles.scanbox}>
-        {/* This is the scanbox */} 
-        </View>
-    </View>
-    <View style={styles.qrScannerCont}>  
-      <QrCodeScanner/>
-    </View>
+      <View style={styles.qrScannerCont}>
+        <QrCodeScanner />
+      </View>
+    </>
   );
 };
-
 
 export default QrScannerScreen;
 
 const styles = StyleSheet.create({
   body: {
     position: "relative",
-    alignItems: "center", 
+    alignItems: "center",
     flex: 1,
   },
   qrScannerCont: {
@@ -105,7 +55,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     fontSize: 20,
-  }, buttonText: {
+  },
+  buttonText: {
     marginLeft: 12,
     color: "#fff",
     fontSize: 26,
@@ -121,6 +72,6 @@ const styles = StyleSheet.create({
     top: 350,
     position: "absolute",
     zIndex: 10,
-  }, scanboxCont: {
-  }
+  },
+  scanboxCont: {},
 });
