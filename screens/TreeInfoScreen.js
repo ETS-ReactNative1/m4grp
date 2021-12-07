@@ -7,10 +7,6 @@ function ConiferTreesTab({ navigation }) {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',}}>
       <Text>Conifer Trees</Text>
-      <Button
-        title="Go to Leafy Trees"
-        onPress={() => navigation.navigate('LAUFTRÉ')}
-      />
     </View>
   );
 }
@@ -19,10 +15,6 @@ function LeafyTreesTab() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>Leafy Trees</Text>
-      <Button
-        title="Go to Leafy Trees"
-        onPress={() => navigation.navigate('BARRTRÉ')}
-      />
     </View>
   );
 }
@@ -43,8 +35,5 @@ export default function TreeInfoScreen() {
 const styles = StyleSheet.create({
   tabs: {
     justifyContent: "center",
-    backgroundColor: "red",
   },
-  tabBar: {
-  }
 });
