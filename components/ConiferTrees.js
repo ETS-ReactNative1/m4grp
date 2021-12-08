@@ -2,6 +2,8 @@ import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/core";
 
+import Stafafura from "./treeInfo/coniferTrees/Stafafura";
+
 const ConiferTrees = () => {
   const navigation = useNavigation();
   return (
@@ -11,12 +13,14 @@ const ConiferTrees = () => {
           onPress={() => {
             navigation.navigate("TreeInfo", {
               title: "Stafafura",
-              content:
-                "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...",
+              pickingStatus: "Söfnun í gangi",
+              pickingTime: "mai-sept",
+              Content: <Stafafura />,
             });
           }}
         >
           <Text>Stafafura</Text>
+          <Stafafura />
         </TouchableOpacity>
       </View>
     </View>
