@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import BackButton from "../components/BackButton";
-import PickingMonths from "../components/PickingMonths";
+import PickingCards from "../components/PickingCards";
 
 const TreeInfoScreen = (route) => {
   const { title, content } = route.route.params;
@@ -13,7 +13,7 @@ const TreeInfoScreen = (route) => {
         <BackButton />
         <Text style={{ fontSize: 40, color: "#FFFDF6" }}>{title}</Text>
       </View>
-      <PickingMonths
+      <PickingCards
         pickingProgress={"Tynsla"}
         pickingProgressStatus={"onGoing"}
         months={"mai-sept"}
