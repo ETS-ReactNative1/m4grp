@@ -6,7 +6,7 @@ const Forest = () => {
   const navigation = useNavigation();
   return (
     <View>
-      <View style={styles.treeCard}>
+      <View style={styles.button}>
         <TouchableOpacity
           onPress={() => {
             navigation.navigate("Forest", {
@@ -16,7 +16,7 @@ const Forest = () => {
             });
           }}
         >
-          <Text>Sjá nánar</Text>
+          <Text style={styles.text}>Sjá nánar</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -26,7 +26,16 @@ const Forest = () => {
 export default Forest;
 
 const styles = StyleSheet.create({
-  treeCard: {
+  button: {
     justifyContent: "center",
+    backgroundColor: "#434B2A",
+    borderRadius: 20,
+    paddingVertical: 5, 
+    paddingHorizontal: 15,
+    marginTop: -8,
+  },
+
+  text: {
+    color:'#FFFDF6',
   },
 });
