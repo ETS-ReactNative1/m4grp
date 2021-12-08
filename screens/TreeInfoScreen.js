@@ -2,11 +2,8 @@ import React from "react";
 import { View, Text, StyleSheet, Image, Dimensions } from "react-native";
 import BackButton from "../components/BackButton";
 import PickingCards from "../components/PickingCards";
-<<<<<<< HEAD
-=======
 
 const windowWidth = Dimensions.get("window").width;
->>>>>>> fr-39
 
 const TreeInfoScreen = (route) => {
   const { title, Content, pickingStatus, pickingTime } = route.route.params;
@@ -23,6 +20,7 @@ const TreeInfoScreen = (route) => {
             style={{
               fontSize: 48,
               fontFamily: "degularDisplay",
+              letterSpacing: 2,
               color: "#FFFDF6",
             }}
           >
@@ -36,15 +34,7 @@ const TreeInfoScreen = (route) => {
           </View>
         </View>
       </View>
-<<<<<<< HEAD
-      <PickingCards
-        pickingProgress={"Tynsla"}
-        pickingProgressStatus={"onGoing"}
-        months={"mai-sept"}
-      />
-=======
       <Image style={styles.tree} source={require("../assets/stafafura.png")} />
->>>>>>> fr-39
       <View style={styles.contentArea}>
         <View>{Content}</View>
       </View>
@@ -58,16 +48,21 @@ const styles = StyleSheet.create({
   cards: {
     position: "absolute",
     left: 16,
-    bottom: 0,
+    bottom: 40,
   },
   topArea: {
     backgroundColor: "#30361E",
-    height: 417,
+    height: 417 ,
   },
-  contentArea: {},
+  contentArea: { 
+    borderTopLeftRadius: 32,
+    borderTopRightRadius: 32,
+    backgroundColor: "#FFFDF6",
+    flex: 1,
+    zIndex: -1,
+  },
   tree: {
     position: "absolute",
     left: windowWidth - 173,
-    top: 40,
   },
 });
