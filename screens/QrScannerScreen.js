@@ -51,18 +51,6 @@ const styles = StyleSheet.create({
     top: 100,
     zIndex: 10,
   },
-  backButton: {
-    flexDirection: "row",
-    alignItems: "center",
-    fontSize: 20,
-  },
-  buttonText: {
-    marginLeft: 12,
-    color: "#fff",
-    fontSize: 26,
-    letterSpacing: 1.5,
-    fontFamily: "degularDisplay",
-  },
   scanbox: {
     borderWidth: 2,
     borderColor: "white",
@@ -73,5 +61,4 @@ const styles = StyleSheet.create({
     position: "absolute",
     zIndex: 10,
   },
-  scanboxCont: {},
 });

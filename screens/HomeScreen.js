@@ -1,4 +1,3 @@
-import { useNavigation } from "@react-navigation/core";
 import React from "react";
 import {
   SafeAreaView,
@@ -8,6 +7,7 @@ import {
   View,
   StatusBar,
 } from "react-native";
+import { useNavigation } from "@react-navigation/core";
 import { auth } from "../config/firebase";
 import PointsArea from "../components/PointsArea";
 import Sun from "../components/Sun";
@@ -20,7 +20,7 @@ const HomeScreen = () => {
       <Text style={styles.decorativeH1}>WELCOME BACK</Text>
       <Text style={styles.decorativeH2}>{auth.currentUser?.email}!</Text>
       <PointsArea points={100} boxes={10} />
-      <View style={styles.buttonContainer}>
+      <View>
         <TouchableOpacity
           onPress={() => {
             navigation.navigate("QrScanner");
