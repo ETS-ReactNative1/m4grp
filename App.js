@@ -15,6 +15,8 @@ export default App = () => {
     bungee: require("./assets/fonts/Bungee.ttf"),
     bungeeHairline: require("./assets/fonts/BungeeHairline.ttf"),
     degularDisplay: require("./assets/fonts/DegularDisplay-Light.otf"),
+    poppinsLight: require("./assets/fonts/Poppins-Light.ttf"),
+    poppinsSemiBold: require("./assets/fonts/Poppins-SemiBold.ttf")
   });
 
   if (!fontsLoaded) {
