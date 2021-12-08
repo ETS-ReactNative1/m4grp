@@ -2,7 +2,6 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import BackButton from "../components/BackButton";
 
-
 const ForestScreen = (route) => {
   const { title, content } = route.route.params;
   console.log(route);

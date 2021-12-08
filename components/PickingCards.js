@@ -29,14 +29,22 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     textAlign: "center",
     backgroundColor: "#434B2A",
-    width: 72,
+    width: 75,
     height: 89,
     borderRadius: 16,
     margin: 16,
+    shadowColor: "#000",
+    shadowOffset: {
+      	width: 0,
+	      height: 5,
+    }, shadowOpacity: 0.34,
+       shadowRadius: 6.27,
+       elevation: 10,
   },
   cardText: {
     color: "#FFFDF6",
     fontSize: 16,
     textAlign: "center",
+    fontFamily: "poppinsDisplay",
   },
 });
