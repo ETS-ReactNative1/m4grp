@@ -1,34 +1,62 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image, Dimensions } from "react-native";
 import BackButton from "../components/BackButton";
-import PickingMonths from "../components/PickingMonths";
+import PickingCards from "../components/PickingCards";
+
+const windowWidth = Dimensions.get("window").width;
 
 const TreeInfoScreen = (route) => {
-  const { title, content } = route.route.params;
-  console.log(route);
+  const { title, Content, pickingStatus, pickingTime } = route.route.params;
+  console.log(route.route);
+
+  console.log("This is content: " + Content);
 
   return (
-    <View>
-      <View style={{ backgroundColor: "#30361E" }}>
+    <>
+      <View style={styles.topArea}>
         <BackButton />
-        <Text style={{ fontSize: 40, color: "#FFFDF6" }}>{title}</Text>
-      </View>
-      <PickingMonths
-        pickingProgress={"Tynsla"}
-        pickingProgressStatus={"onGoing"}
-        months={"mai-sept"}
-      />
-      <View style={styles.contentArea}>
-        <View>
-          <Text>{content}</Text>
+        <View style={styles.cards}>
+          <Text
+            style={{
+              fontSize: 48,
+              fontFamily: "degularDisplay",
+              color: "#FFFDF6",
+            }}
+          >
+            {title}
+          </Text>
+          <View style={{ left: -16 }}>
+            <PickingCards
+              pickingStatus={pickingStatus}
+              pickingTime={pickingTime}
+            />
+          </View>
         </View>
       </View>
-    </View>
+      <Image style={styles.tree} source={require("../assets/stafafura.png")} />
+      <View style={styles.contentArea}>
+        <View>{Content}</View>
+      </View>
+    </>
   );
 };
 
 export default TreeInfoScreen;
 
 const styles = StyleSheet.create({
+  cards: {
+    position: "absolute",
+    left: 16,
+    bottom: 0,
+  },
+  topArea: {
+    backgroundColor: "#30361E",
+    height: 417,
+  },
   contentArea: {},
+  tree: {
+    position: "absolute",
+    left: windowWidth - 173,
+    top: 40,
+  },
 });
