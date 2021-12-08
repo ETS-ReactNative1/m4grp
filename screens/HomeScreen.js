@@ -1,4 +1,3 @@
-import { useNavigation } from "@react-navigation/core";
 import React from "react";
 import {
   SafeAreaView,
@@ -9,6 +8,7 @@ import {
   StatusBar,
   Image,
 } from "react-native";
+import { useNavigation } from "@react-navigation/core";
 import { auth } from "../config/firebase";
 import PointsArea from "../components/PointsArea";
 import Sun from "../components/Sun";

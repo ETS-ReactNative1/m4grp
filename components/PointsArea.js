@@ -28,7 +28,7 @@ const PointsArea = (props) => {
         <View style={styles.innerContainer}>
           <TouchableOpacity
             onPress={() => {
-              navigation.push("Community");
+              navigation.push("UserList");
             }}
           >
           <Icon
