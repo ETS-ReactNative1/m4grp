@@ -113,7 +113,8 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flex: 3,
-    marginTop: 100,
+    marginTop: 0,
+    marginBottom: 100,
     justifyContent: "flex-end",
     zIndex: 2,
 

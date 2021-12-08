@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import BackButton from "../components/BackButton";
-import PickingMonths from "../components/PickingMonths";
+
 
 const ForestScreen = (route) => {
   const { title, content } = route.route.params;
