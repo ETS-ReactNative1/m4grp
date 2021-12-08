@@ -1,29 +1,29 @@
 import React from "react";
-import { View, Image, StyleSheet} from "react-native";
+import { View, Image, StyleSheet } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const Tab = createBottomTabNavigator();
 
 import HomeScreen from "../screens/HomeScreen";
 import MapScreen from "../screens/MapScreen";
-import TreeInfoScreen from "../screens/TreeInfoScreen";
+import TreesScreen from "../screens/TreesScreen";
 import SettingsScreen from "../screens/SettingsScreen";
 
 // Icons
-import { Icon } from 'react-native-elements'
+import { Icon } from "react-native-elements";
 
 const Tabs = () => {
   return (
     <Tab.Navigator
-    screenOptions={{
-      tabBarShowLabel: false, 
-      tabBarStyle: { 
-        position: 'relative',
-        evaluation: 0,
-        backgroundColor: "#FFFDF6", 
-        height: 75,
-      },
-    }}
+      screenOptions={{
+        tabBarShowLabel: false,
+        tabBarStyle: {
+          position: "relative",
+          evaluation: 0,
+          backgroundColor: "#FFFDF6",
+          height: 75,
+        },
+      }}
     >
       <Tab.Screen
         name="Home"
@@ -32,8 +32,11 @@ const Tabs = () => {
           headerShown: false,
           tabBarIcon: ({ focused }) => (
             <View
-            style={[styles.navbar, {backgroundColor: focused ? "#3A5046" : "#FFFDF6"}]}
-            > 
+              style={[
+                styles.navbar,
+                { backgroundColor: focused ? "#3A5046" : "#FFFDF6" },
+              ]}
+            >
               <Icon
                 name="home"
                 type="entypo"
@@ -45,14 +48,17 @@ const Tabs = () => {
         }}
       />
       <Tab.Screen
-        name="TreeInfo"
-        component={TreeInfoScreen}
+        name="Trees"
+        component={TreesScreen}
         options={{
           headerShown: false,
           tabBarIcon: ({ focused }) => (
             <View
-            style={[styles.navbar, {backgroundColor: focused ? "#3A5046" : "#FFFDF6"}]}
-            > 
+              style={[
+                styles.navbar,
+                { backgroundColor: focused ? "#3A5046" : "#FFFDF6" },
+              ]}
+            >
               <Icon
                 name="tree"
                 type="font-awesome-5"
@@ -70,7 +76,10 @@ const Tabs = () => {
           headerShown: false,
           tabBarIcon: ({ focused }) => (
             <View
-            style={[styles.navbar, {backgroundColor: focused ? "#3A5046" : "#FFFDF6"}]}
+              style={[
+                styles.navbar,
+                { backgroundColor: focused ? "#3A5046" : "#FFFDF6" },
+              ]}
             >
               <Icon
                 name="map-marked-alt"
@@ -89,7 +98,10 @@ const Tabs = () => {
           headerShown: false,
           tabBarIcon: ({ focused }) => (
             <View
-            style={[styles.navbar, {backgroundColor: focused ? "#3A5046" : "#FFFDF6"}]}
+              style={[
+                styles.navbar,
+                { backgroundColor: focused ? "#3A5046" : "#FFFDF6" },
+              ]}
             >
               <Icon
                 name="cog"
@@ -116,5 +128,3 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 });
-
-

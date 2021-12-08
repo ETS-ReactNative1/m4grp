@@ -1,41 +1,34 @@
-import * as React from "react";
-import { Text, View, SafeAreaView, StyleSheet } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
+import BackButton from "../components/BackButton";
+import PickingMonths from "../components/PickingMonths";
 
-const ConiferTreesTab = () => {
+const TreeInfoScreen = (route) => {
+  const { title, content } = route.route.params;
+  console.log(route);
+
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Conifer Trees</Text>
+    <View>
+      <View style={{ backgroundColor: "#30361E" }}>
+        <BackButton />
+        <Text style={{ fontSize: 40, color: "#FFFDF6" }}>{title}</Text>
+      </View>
+      <PickingMonths
+        pickingProgress={"Tynsla"}
+        pickingProgressStatus={"onGoing"}
+        months={"mai-sept"}
+      />
+      <View style={styles.contentArea}>
+        <View>
+          <Text>{content}</Text>
+        </View>
+      </View>
     </View>
-  );
-};
-
-const LeafyTreesTab = () => {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Leafy Trees</Text>
-    </View>
-  );
-};
-
-const Tab = createMaterialTopTabNavigator();
-
-const TreeInfoScreen = () => {
-  return (
-    <NavigationContainer independent={true}>
-      <Tab.Navigator style={styles.tabs}>
-        <Tab.Screen name="BARRTRÉ" component={ConiferTreesTab} />
-        <Tab.Screen name="LAUFTRÉ" component={LeafyTreesTab} />
-      </Tab.Navigator>
-    </NavigationContainer>
   );
 };
 
 export default TreeInfoScreen;
 
 const styles = StyleSheet.create({
-  tabs: {
-    justifyContent: "center",
-  },
+  contentArea: {},
 });
