@@ -2,6 +2,12 @@ import React from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/core";
 
+
+  // Icons
+  import { Icon } from 'react-native-elements'
+  // Fonts
+import { useFonts } from "expo-font";
+
 const PointsArea = (props) => {
   const navigation = useNavigation();
 
@@ -25,10 +31,12 @@ const PointsArea = (props) => {
               navigation.push("UserList");
             }}
           >
-            <Image
-              source={require("../assets/users.png")}
-              style={{ tintColor: "#3A5046" }}
-            />
+          <Icon
+            name="people-alt"
+            type="materialicons"
+            color="#464646"
+            size={55}
+          />
           </TouchableOpacity>
         </View>
         <View style={styles.VL} />
@@ -41,32 +49,37 @@ export default PointsArea;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    marginTop: 10,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#fff",
+    zIndex: 1,
   },
   innerContainer: {
-    flex: 1,
     flexDirection: "column",
-    alignItems: "center",
     justifyContent: "center",
+    alignItems: "center",
+    width: "20%",
   },
   decorativeH1: {
     fontStyle: "normal",
-    color: "#3A5046",
+    color: "#464646",
     fontSize: 36,
-    lineHeight: 43,
+    fontFamily: "poppinsSemiBold",
+    lineHeight: 45,
     textAlign: "left",
+    zIndex: 1,
   },
   subHeading: {
-    fontSize: 16,
+    color: "#464646",
+    fontSize: 20,
+    fontFamily: "poppinsLight",
+    zIndex: 1,
   },
   VL: {
     borderLeftWidth: 1,
-    borderLeftColor: "#3A5046",
+    borderLeftColor: "#c4c4c4",
     margin: 10,
-    height: 60,
+    height: 80,
   },
 });

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Image } from "react-native";
 import * as Location from "expo-location";
+// This is for changing the sun into a svg, because the current sun is not transparent. 
+import SunImage from "./Images/SunImage";
 
 // Takes in a string with the format of hh:mm:ss and returns the value in seconds
 const convertHMSToSeconds = (hms) => {
