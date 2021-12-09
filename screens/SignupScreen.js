@@ -1,4 +1,3 @@
-// ---------- THIS IS THE SIGNUP SCREEN: ---------- \\
 import { useNavigation } from "@react-navigation/core";
 import React, { useEffect, useState } from "react";
 import {
@@ -18,6 +17,7 @@ import { Icon } from "react-native-elements";
 import Betulaleaf from "../components/Images/Betulaleaf";
 
 const windowWidth = Dimensions.get("window").width;
+const windowHeight = Dimensions.get("window").height;
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
@@ -49,7 +49,6 @@ const LoginScreen = () => {
     <View style={styles.body}>
       <KeyboardAvoidingView style={styles.container}>
         <Text style={styles.headerText}> Sign Up with </Text>
-
         <View style={styles.hyperlinkButtons}>
           <TouchableOpacity style={styles.soMeButtons}>
             <View style={styles.iconContainer}>
@@ -78,13 +77,6 @@ const LoginScreen = () => {
           />
           <TextInput
             placeholder="Password"
-            value={password}
-            onChangeText={(text) => setPassword(text)}
-            style={styles.input}
-            secureTextEntry
-          />
-          <TextInput
-            placeholder="Repeat Password"
             value={password}
             onChangeText={(text) => setPassword(text)}
             style={styles.input}
@@ -129,7 +121,7 @@ const styles = StyleSheet.create({
   betulaleaf: {
     transform: [{ rotateY: "0deg" }, { rotateZ: "-69.72deg" }],
     position: "absolute",
-    marginTop: 75,
+    marginTop: windowHeight / 200,
   },
   body: {
     backgroundColor: "#30361E",
@@ -141,16 +133,16 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFDF6",
     flex: 1,
     alignItems: "center",
-    marginTop: 210,
+    marginTop: windowHeight / 6,
   },
   headerText: {
-    color: "rgba(48, 54, 30, 1)",
+    color: "#30361E",
     fontFamily: "degularDisplay",
     fontSize: 40,
-    marginTop: 60,
+    marginTop: windowHeight / 12,
   },
   emailLoginText: {
-    marginTop: 40,
+    marginTop: windowHeight / 15,
     color: "rgba(48, 54, 30, 1)",
     fontFamily: "degularDisplay",
     fontSize: 24,
@@ -158,7 +150,6 @@ const styles = StyleSheet.create({
   inputContainer: {
     marginTop: 10,
     alignItems: "center",
-    width: "80%",
   },
   input: {
     backgroundColor: "#FFFDF6",
@@ -168,14 +159,13 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     marginBottom: 15,
     height: 60,
-    width: 400,
-    paddingHorizontal: 15,
+    width: windowWidth - 16,
+    paddingHorizontal: 16,
     paddingVertical: 10,
     borderRadius: 16,
-    marginTop: 5,
   },
   button: {
-    marginLeft: 320,
+    marginLeft: windowWidth - 96,
     marginTop: 10,
     alignItems: "center",
   },
@@ -189,7 +179,8 @@ const styles = StyleSheet.create({
     width: 80,
   },
   hyperlinkContainer: {
-    marginTop: 40,
+    position: "absolute",
+    marginTop: windowHeight / 1.4,
     flexDirection: "row",
     fontFamily: "degularDisplay",
   },
@@ -216,7 +207,7 @@ const styles = StyleSheet.create({
     color: "#30361E",
     borderWidth: 2.3,
     height: 55,
-    width: 190,
+    width: windowWidth / 2.2,
     marginTop: 20,
     marginRight: 10,
     marginLeft: 10,
@@ -229,6 +220,7 @@ const styles = StyleSheet.create({
     fontFamily: "degularDisplay",
     color: "#30361E",
     fontSize: 22,
+    letterSpacing: 1.5,
     marginLeft: 10,
   },
 });
