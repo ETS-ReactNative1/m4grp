@@ -1,10 +1,18 @@
-// ---------- THIS IS THE START SCREEN ---------- \\
 import { useNavigation } from "@react-navigation/core";
 import React, { useEffect } from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  Dimensions,
+} from "react-native";
 import { auth } from "../config/firebase";
 
 import FraeLogo from "../components/Images/FraeLogo";
+
+const windowWidth = Dimensions.get("window").width;
+const windowHeight = Dimensions.get("window").height;
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -55,17 +63,15 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   logo: {
-    marginTop: 250,
+    marginTop: windowWidth / 3,
     alignItems: "center",
   },
   buttonContainer: {
-    marginTop: 50,
+    marginTop: windowHeight / 20,
     alignItems: "center",
   },
   SignInButton: {
     backgroundColor: "#FFFDF6",
-    borderColor: "#30361E",
-    borderWidth: 2.3,
     height: 60,
     width: 190,
     marginBottom: 15,
@@ -77,7 +83,7 @@ const styles = StyleSheet.create({
     fontFamily: "degularDisplay",
     color: "#30361E",
     fontSize: 28,
-    marginLeft: 10,
+    textAlign: "center",
   },
   SignUpButton: {
     backgroundColor: "#30361E",
@@ -93,6 +99,6 @@ const styles = StyleSheet.create({
     fontFamily: "degularDisplay",
     color: "#FFFDF6",
     fontSize: 28,
-    marginLeft: 10,
+    textAlign: "center",
   },
 });
