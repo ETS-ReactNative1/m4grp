@@ -4,7 +4,7 @@ import { ScrollView } from "react-native-gesture-handler";
 
 const windowWidth = Dimensions.get("window").width;
 
-const Stafafura = () => {
+const Ilmbjork = () => {
   return (
     <ScrollView style={styles.body}>
       <View>
@@ -56,7 +56,7 @@ const Stafafura = () => {
   );
 };
 
-export default Stafafura;
+export default Ilmbjork;
 
 const styles = StyleSheet.create({
   body: {
