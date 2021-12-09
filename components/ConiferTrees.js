@@ -1,9 +1,10 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, Image, Dimensions } from "react-native";
 import { useNavigation } from "@react-navigation/core";
 import { ScrollView } from "react-native-gesture-handler";
-
 import Stafafura from "./treeInfo/coniferTrees/Stafafura";
+
+const windowWidth = Dimensions.get("window").width;
 
 const ConiferTrees = () => {
   const navigation = useNavigation();
@@ -17,7 +18,7 @@ const ConiferTrees = () => {
             yfirborðinu sem verndar það. Barr inniheldur líka ýmis efni sem
             virka eins og frostlögur. Það þolir því vel kulda og flest barrtré
             halda því barrinu á veturna. Trén eru þess vegna græn á litinn allan
-            ársins hring. Margar mismunandi gerðir eru til af barrtrjám.{" "}
+            ársins hring. Margar mismunandi gerðir eru til af barrtrjám.
           </Text>
           <Text style={styles.title}>Lerki</Text>
           <Text style={styles.paragraph}>
@@ -236,7 +237,7 @@ const styles = StyleSheet.create({
   },
   treeCard: {
     justifyContent: "center",
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   treeBranchPicture: {
     height: 150,
@@ -246,19 +247,20 @@ const styles = StyleSheet.create({
     marginBottom: -110,
   },
   paragraph: {
-    marginTop: 20,
-    marginBottom: 10,
-    marginLeft: 15,
-    marginRight: 40,
-    backgroundColor: "#FFFDF7",
+    width: windowWidth / 1.1,
+    paddingLeft: windowWidth / 20,
+    paddingTop: windowWidth / 20,
+    fontFamily: "degularDisplay",
+    fontSize: 18,
+    color: "#30361E",
   },
 
   title: {
-    fontSize: 20,
-    marginTop: 20,
-    marginBottom: 10,
-    marginLeft: 15,
-    marginRight: 40,
+    fontFamily: "degularDisplay",
+    fontSize: 32,
+    color: "#30361E",
+    paddingLeft: windowWidth / 20,
+    paddingTop: windowWidth / 20,
   },
 
   treeNav: {
