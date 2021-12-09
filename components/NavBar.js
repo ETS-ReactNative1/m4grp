@@ -16,6 +16,11 @@ const Tabs = () => {
   return (
     <Tab.Navigator
       screenOptions={{
+        tabBarOptions: {
+          style: {
+            backgroundColor: "#FFFDF6",
+          },
+        },
         tabBarShowLabel: false,
         tabBarStyle: {
           position: "relative",
