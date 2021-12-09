@@ -12,11 +12,10 @@ LogBox.ignoreLogs(["AsyncStorage"]);
 export default App = () => {
   // Loading fonts
   let [fontsLoaded] = useFonts({
-    bungee: require("./assets/fonts/Bungee.ttf"),
-    bungeeHairline: require("./assets/fonts/BungeeHairline.ttf"),
     degularDisplay: require("./assets/fonts/DegularDisplay-Light.otf"),
+    poppinsRegular: require("./assets/fonts/Poppins-Regular.ttf"),
     poppinsLight: require("./assets/fonts/Poppins-Light.ttf"),
-    poppinsSemiBold: require("./assets/fonts/Poppins-SemiBold.ttf")
+    poppinsSemiBold: require("./assets/fonts/Poppins-SemiBold.ttf"),
   });
 
   if (!fontsLoaded) {

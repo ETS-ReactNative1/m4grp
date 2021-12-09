@@ -20,7 +20,6 @@ const ConiferTrees = () => {
           }}
         >
           <Text>Stafafura</Text>
-          <Stafafura />
         </TouchableOpacity>
       </View>
     </View>
