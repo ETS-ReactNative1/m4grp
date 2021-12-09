@@ -1,15 +1,21 @@
 import React from "react";
-import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  Dimensions,
+} from "react-native";
 import { useNavigation } from "@react-navigation/core";
 
+// Icons
+import { Icon } from "react-native-elements";
 
-  // Icons
-  import { Icon } from 'react-native-elements'
-  // Fonts
-import { useFonts } from "expo-font";
+const windowHeight = Dimensions.get("window").height;
 
 const PointsArea = (props) => {
   const navigation = useNavigation();
+  console.log(windowHeight);
 
   return (
     <>
@@ -31,12 +37,12 @@ const PointsArea = (props) => {
               navigation.push("UserList");
             }}
           >
-          <Icon
-            name="people-alt"
-            type="materialicons"
-            color="#464646"
-            size={55}
-          />
+            <Icon
+              name="people-alt"
+              type="materialicons"
+              color="#464646"
+              size={55}
+            />
           </TouchableOpacity>
         </View>
         <View style={styles.VL} />
@@ -64,7 +70,7 @@ const styles = StyleSheet.create({
   decorativeH1: {
     fontStyle: "normal",
     color: "#464646",
-    fontSize: 36,
+    fontSize: windowHeight / 27,
     fontFamily: "poppinsSemiBold",
     lineHeight: 45,
     textAlign: "left",
@@ -80,6 +86,6 @@ const styles = StyleSheet.create({
     borderLeftWidth: 1,
     borderLeftColor: "#c4c4c4",
     margin: 10,
-    height: 80,
+    height: windowHeight / 15,
   },
 });

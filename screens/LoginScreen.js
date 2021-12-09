@@ -1,4 +1,3 @@
-// ---------- THIS IS THE LOGIN SCREEN ---------- \\
 import { useNavigation } from "@react-navigation/core";
 import React, { useEffect, useState } from "react";
 import {
@@ -17,6 +16,7 @@ import { Icon } from "react-native-elements";
 import Betulaleaf from "../components/Images/Betulaleaf";
 
 const windowWidth = Dimensions.get("window").width;
+const windowHeight = Dimensions.get("window").height;
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
@@ -43,8 +43,6 @@ const LoginScreen = () => {
       })
       .catch((error) => alert(error.message));
   };
-
-  console.log(windowWidth);
 
   return (
     <View style={styles.body}>
@@ -86,18 +84,16 @@ const LoginScreen = () => {
           />
         </View>
 
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity onPress={handleLogin} style={styles.button}>
-            <View style={styles.loginContainer}>
-              <Icon
-                name="arrow-right"
-                type="font-awesome"
-                color="#30361E"
-                size={35}
-              />
-            </View>
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity onPress={handleLogin} style={styles.button}>
+          <View style={styles.loginContainer}>
+            <Icon
+              name="arrow-right"
+              type="font-awesome"
+              color="#30361E"
+              size={35}
+            />
+          </View>
+        </TouchableOpacity>
         <View style={styles.hyperlinkContainer}>
           <Text> New? </Text>
           <TouchableOpacity
@@ -124,7 +120,7 @@ const styles = StyleSheet.create({
   betulaleaf: {
     transform: [{ rotateY: "0deg" }, { rotateZ: "-69.72deg" }],
     position: "absolute",
-    marginTop: 75,
+    marginTop: windowHeight / 200,
   },
   body: {
     backgroundColor: "#30361E",
@@ -136,16 +132,16 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFDF6",
     flex: 1,
     alignItems: "center",
-    marginTop: 210,
+    marginTop: windowHeight / 6,
   },
   headerText: {
     color: "#30361E",
     fontFamily: "degularDisplay",
     fontSize: 40,
-    marginTop: 60,
+    marginTop: windowHeight / 12,
   },
   emailLoginText: {
-    marginTop: 100,
+    marginTop: windowHeight / 15,
     color: "rgba(48, 54, 30, 1)",
     fontFamily: "degularDisplay",
     fontSize: 24,
@@ -153,7 +149,6 @@ const styles = StyleSheet.create({
   inputContainer: {
     marginTop: 10,
     alignItems: "center",
-    width: "80%",
   },
   input: {
     backgroundColor: "#FFFDF6",
@@ -163,14 +158,13 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     marginBottom: 15,
     height: 60,
-    width: 400,
-    paddingHorizontal: 15,
+    width: windowWidth - 16,
+    paddingHorizontal: 16,
     paddingVertical: 10,
     borderRadius: 16,
-    marginTop: 5,
   },
   button: {
-    marginLeft: 320,
+    marginLeft: windowWidth - 96,
     marginTop: 10,
     alignItems: "center",
   },
@@ -184,7 +178,8 @@ const styles = StyleSheet.create({
     width: 80,
   },
   hyperlinkContainer: {
-    marginTop: 60,
+    position: "absolute",
+    marginTop: windowHeight / 1.4,
     flexDirection: "row",
     fontFamily: "degularDisplay",
   },
@@ -211,7 +206,7 @@ const styles = StyleSheet.create({
     color: "#30361E",
     borderWidth: 2.3,
     height: 55,
-    width: 190,
+    width: windowWidth / 2.2,
     marginTop: 20,
     marginRight: 10,
     marginLeft: 10,

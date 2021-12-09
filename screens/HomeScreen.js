@@ -1,5 +1,12 @@
 import React from "react";
-import { Text, StyleSheet, TouchableOpacity, View, Image } from "react-native";
+import {
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+  Image,
+  Dimensions,
+} from "react-native";
 import { useNavigation } from "@react-navigation/core";
 import { auth } from "../config/firebase";
 import PointsArea from "../components/PointsArea";
@@ -7,6 +14,9 @@ import Sun from "../components/Sun";
 
 // Icons
 import { Icon } from "react-native-elements";
+
+const windowWidth = Dimensions.get("window").width;
+const windowHeight = Dimensions.get("window").height;
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -36,7 +46,7 @@ const HomeScreen = () => {
           name="qr-code-scanner"
           type="materialIcons"
           color="#3A5046"
-          size={55}
+          size={windowWidth / 8}
         />
       </TouchableOpacity>
       <Sun />
@@ -58,12 +68,12 @@ const styles = StyleSheet.create({
   },
   userCont: {
     alignItems: "center",
-    marginTop: 30,
+    marginTop: windowHeight > 700 ? windowHeight / 25 : windowHeight / 7,
     zIndex: 1,
   },
   userImg: {
-    width: 150,
-    height: 150,
+    height: windowWidth / 4,
+    width: windowWidth / 4,
     borderRadius: 99,
     alignItems: "center",
     justifyContent: "center",
@@ -99,13 +109,13 @@ const styles = StyleSheet.create({
     zIndex: 2,
   },
   QrBtn: {
-    bottom: 40,
+    bottom: windowHeight > 700 ? windowHeight / 25 : windowHeight / 7,
     backgroundColor: "#FFFDF6",
     borderColor: "#3A5046",
     borderWidth: 4,
     borderRadius: 99,
-    height: 90,
-    width: 90,
+    height: windowWidth / 5,
+    width: windowWidth / 5,
     justifyContent: "center",
     zIndex: 1,
   },
