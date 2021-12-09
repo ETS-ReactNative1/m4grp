@@ -1,8 +1,9 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import UserListItem from "../components/UserListItem";
 import { ScrollView } from "react-native-gesture-handler";
+import BackButton from "../components/BackButton";
 
 const NeighboursTab = () => {
   return (
@@ -43,19 +44,49 @@ const CountryTab = () => {
 const Tab = createMaterialTopTabNavigator();
 
 const UserListScreen = () => {
+  const screenOptions = {
+    tabBarActiveTintColor: '#FFFDF6',
+    tabBarInactiveTintColor: '#30361E',
+    tabBarIndicatorStyle: { backgroundColor: '#30361E', height: '100%', borderRadius: 20, },
+    pressOpacity: 1,  
+    tabBarStyle: { backgroundColor: '#FFFDF6', marginLeft: 40, marginRight: 40, borderRadius: 20,},
+  }
   return (
-    <Tab.Navigator style={styles.tabs}>
-      <Tab.Screen name="NÁGRENNI" component={NeighboursTab} />
+    <>
+    <View style={styles.topElement}><Text style={styles.headerText}>Samfélagið</Text></View>
+    <Text style={styles.aboveTabs}></Text>
+    <Tab.Navigator screenOptions={screenOptions} style={styles.tabs}>
+      <Tab.Screen style={styles.tabs} name="NÁGRENNI" component={NeighboursTab} />
       <Tab.Screen name="LANDIÐ" component={CountryTab} />
     </Tab.Navigator>
+    </>
   );
 };
 
 export default UserListScreen;
 
 const styles = StyleSheet.create({
+  topElement: {
+    height: 150,
+    backgroundColor: "#30361E",
+    marginBottom: -20,
+  },
+
+  headerText: {
+    marginTop: 50,
+    marginLeft: 20,
+    fontSize: 30,
+    color: '#FFFDF6'
+  },
+  
+  aboveTabs: {
+    height: 40,
+    backgroundColor: "#FFFDF6",
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+  },
   tabs: {
-    justifyContent: "center",
+    backgroundColor: '#FFFDF6'
   },
 });
 
