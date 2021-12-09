@@ -4,59 +4,54 @@ import { ScrollView } from "react-native-gesture-handler";
 
 const windowWidth = Dimensions.get("window").width;
 
-const Stafafura = () => {
+const Ilmbjork = () => {
   return (
     <ScrollView style={styles.body}>
       <View>
         <Text style={[styles.paragraph, {marginTop: windowWidth / 6}]}>
-          Mauris interdum ut cursus vulputate facilisi arcu curabitur nam.
-          Viverra sapien scelerisque dictum massa enim nulla. Sit a nunc, ut
-          massa. Vel morbi consequat, porttitor eget phasellus quam.
+        A birch has smooth, resinous, varicoloured or white bark, marked by horizontal pores, which usually peels horizontally in thin sheets, especially on young trees
         </Text>
         <Text style={[styles.paragraph, {}]}>
-          Consequat massa, dapibus sed placerat neque blandit. Suspendisse augue
-          blandit nisi, magna. Odio facilisis non, volutpat aliquet nibh a nisi
-          morbi risus.
+        It will be much better if you go out to pick seeds when it is dry. 
+        Make sure to put your seed straight into the box when you get it. 
         </Text>
       </View>
       <View>
-        <Text style={[styles.h3, {}]}>Skoðum barrnálarnar</Text>
+        <Text style={[styles.h3, {}]}>Skoðum Laufin</Text>
         <Text style={[styles.paragraph, {}]}>
-          Rhoncus nunc elementum vivamus facilisis. Turpis consectetur lacus, a
-          nunc tincidunt amet aliquam venenatis. Rhoncus odio sit gravida lorem
-          sit sed enim quis ut. Sed enim egestas ut eget eu nulla donec.
+        Leaves are have narrow 
+        tips and are light green underneath.
         </Text>
         <Image 
-          style={styles.pineSapling} 
-          source={require("../../../assets/stafafura-2.png")} />
+          style={styles.betulaleaf1} 
+          source={require("../../../assets/betulaleaf.png")} />
       </View>
-      <View>
-        <Text style={[styles.h3, {}]}>Skoðum könglana</Text>
+      <View 
+        style={{bottom: windowWidth / 5}}>
+        <Text style={[styles.h3, {marginTop: windowWidth / 50}]}>Skoðum fræin</Text>
+        <Text style={[styles.paragraph, {marginBottom: windowWidth / 100}]}>
+        The seeds are ready to be 
+        picked when they are bright green and hard to the touch.
+        </Text>
+        <Image 
+          style={styles.betulaleaf2} 
+          source={require("../../../assets/betulaleaf-2.png")} />
+      </View>
+      <View 
+        style={{bottom: windowWidth / 4}}>
+        <Text style={[styles.h3, {}]}>Skoðum börkinn</Text>
         <Text style={[styles.paragraph, {marginBottom: windowWidth / 10}]}>
-          Sit ut bibendum lobortis ac tincidunt arcu. Volutpat ipsum urna
-          viverra id pellentesque.
+        Birch tree bark is usually whitish-gray, silver, or sometimes red. The bark on most birch trees has horizontal dark streaks that look like scoring. Birch tree bark is also well-known for its paper-like texture and peeling nature.
         </Text>
       </View>
-      <View style={styles.coneCont}>
-        <Image
-         source={require("../../../assets/cone.png")} />
-        <Image
-         style={{
-          marginLeft: windowWidth - 550,
-          marginTop: windowWidth - 530,
-          height: 200,
-          width: 200,
-          transform: [
-            { rotateZ: "-33deg" }
-          ]
-        }}
-         source={require("../../../assets/cone.png")} />
-      </View>
+      <Image 
+          style={styles.birchBark} 
+          source={require("../../../assets/birchBark.png")} />
     </ScrollView>
   );
 };
 
-export default Stafafura;
+export default Ilmbjork;
 
 const styles = StyleSheet.create({
   body: {
@@ -77,19 +72,15 @@ const styles = StyleSheet.create({
     fontSize: 18,
     lineHeight: 22.4,
   },
-  pineSapling: {
+  betulaleaf1: {
     position: "relative",
     left: windowWidth - 200,
     bottom: windowWidth / 10,
   },
-  coneCont: {
-    marginBottom: windowWidth / 10,
-    left: windowWidth - 350,
-    top: windowWidth - 350,
+  birchBark: {
+    marginBottom: windowWidth - 500,
+    left: windowWidth - 300,
+    top: windowWidth - 550,
     flexDirection: "row",
-    transform: [
-      { rotateY: "33deg" },
-      { rotateZ: "33deg" }
-    ]
   }
 });

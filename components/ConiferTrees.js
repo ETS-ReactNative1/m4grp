@@ -1,9 +1,13 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, Image, Dimensions} from "react-native";
 import { useNavigation } from "@react-navigation/core";
 import { ScrollView } from "react-native-gesture-handler";
 
 import Stafafura from "./treeInfo/coniferTrees/Stafafura";
+import Ilmbjork from "./treeInfo/leafyTrees/Ilmbjork";
+
+const windowWidth = Dimensions.get("window").width;
+
 
 const ConiferTrees = () => {
   const navigation = useNavigation();
@@ -11,7 +15,7 @@ const ConiferTrees = () => {
     <ScrollView style={styles.container}>
       <View>
         <View>
-          <Text style={styles.paragraph}>
+          <Text style={[styles.paragraph, {marginTop: windowWidth / 10}]}>
             Greni þurfa ekki eins mikið vatn og lauftré og geta því vaxið þar
             sem lauftré þrífast ekki. Sumt barr hefur vaxkennda húð á
             yfirborðinu sem verndar það. Barr inniheldur líka ýmis efni sem
@@ -44,6 +48,7 @@ const ConiferTrees = () => {
                 pickingStatus: "Söfnun í gangi",
                 pickingTime: "mai-sept",
                 Content: <Stafafura />,
+                treeImage: require("../assets/stafafura.png"),
               });
             }}
           >
@@ -52,8 +57,18 @@ const ConiferTrees = () => {
             source={require("../assets/Fjallalerki.png")}></Image>
             <Text style={styles.menuText}>Stafafura</Text>
           </TouchableOpacity>
+
           <TouchableOpacity
             style={styles.treeNav}
+            onPress={() => {
+              navigation.navigate("TreeInfo", {
+                title: "Ilmbjork",
+                pickingStatus: "Söfnun í gangi",
+                pickingTime: "Ág-Okt",
+                Content: <Ilmbjork />,
+                treeImage: require("../assets/mountainash.png"),
+              });
+            }}
           >
             <Image 
             style={styles.treeBranchPicture}
@@ -188,6 +203,7 @@ const ConiferTrees = () => {
           <TouchableOpacity
             style={styles.treeNav}
             
+            
           >
             <Image 
             style={styles.treeBranchPicture}
@@ -250,11 +266,14 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     marginLeft: 15,
     marginRight: 40,
+    fontFamily: "degularDisplay",
+    fontSize: 16,
     backgroundColor: "#FFFDF7",
   },
 
-  title: {
-    fontSize: 20,
+  title: {    
+    fontFamily: "degularDisplay",
+    fontSize: 32,
     marginTop: 20,
     marginBottom: 10,
     marginLeft: 15,
@@ -271,6 +290,8 @@ const styles = StyleSheet.create({
   },
 
   menuText: {
+    fontFamily: "degularDisplay",
+    fontSize: 16,
     marginTop: 75,
     marginLeft: 30,
     color: "#FFFDF7",
