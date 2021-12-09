@@ -14,8 +14,8 @@ const PickingCards = (props) => {
         <Text style={styles.cardText}>{pickingStatus}</Text>
       </View>
       <View style={styles.pickingInfoCard}>
-        <Icon name="alarm" type="MaterialIcons" size={40} color="#FFFDF6" />
-        <Text style={[styles.cardText, { fontSize: 14 }]}>{pickingTime}</Text>
+        <Icon name="alarm" type="MaterialIcons" size={35} color="#FFFDF6" />
+        <Text style={[styles.cardText, { fontSize: 13 }]}>{pickingTime}</Text>
       </View>
     </View>
   );
@@ -44,8 +44,8 @@ const styles = StyleSheet.create({
   },
   cardText: {
     color: "#FFFDF6",
-    fontSize: 16,
     textAlign: "center",
+    fontSize: 13,
     fontFamily: "poppinsRegular",
   },
 });

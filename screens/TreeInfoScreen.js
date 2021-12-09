@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, Dimensions } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 import BackButton from "../components/BackButton";
 import PickingCards from "../components/PickingCards";
 
@@ -13,8 +14,19 @@ const TreeInfoScreen = (route) => {
 
   return (
     <>
+    <ScrollView>
+      <View style={styles.body}>
+      <View
+        style={{
+          position: "absolute",
+          marginTop: windowWidth / 5,
+          marginLeft: windowWidth / 20,
+        }} 
+        >
+        <BackButton/>
+      </View> 
+
       <View style={styles.topArea}>
-        <BackButton />
         <View style={styles.cards}>
           <Text
             style={{
@@ -38,6 +50,8 @@ const TreeInfoScreen = (route) => {
       <View style={styles.contentArea}>
         <View>{Content}</View>
       </View>
+      </View>
+  </ScrollView>
     </>
   );
 };
@@ -45,24 +59,27 @@ const TreeInfoScreen = (route) => {
 export default TreeInfoScreen;
 
 const styles = StyleSheet.create({
-  cards: {
-    position: "absolute",
-    left: 16,
-    bottom: 40,
+  body: {
+    backgroundColor: "#30361E",
+    justifyContent: "flex-start",
   },
   topArea: {
-    backgroundColor: "#30361E",
-    height: 417 ,
+    position: "absolute",
+    marginTop: windowWidth / 3,
+    paddingLeft: windowWidth / 20,
+    paddingTop: windowWidth / 5,
+
   },
   contentArea: { 
+    marginTop: windowWidth / 1 ,
     borderTopLeftRadius: 32,
     borderTopRightRadius: 32,
-    backgroundColor: "#FFFDF6",
-    flex: 1,
+    backgroundColor: "#FFFDF7",
     zIndex: -1,
   },
   tree: {
     position: "absolute",
     left: windowWidth - 173,
+    top: windowWidth / 4,
   },
 });

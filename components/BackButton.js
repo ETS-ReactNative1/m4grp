@@ -5,7 +5,16 @@ import {
   Image,
   TouchableOpacity,
   StyleSheet,
+  View,
+  Text,
+  Dimensions,
 } from "react-native";
+
+// Icons
+import { Icon } from "react-native-elements";
+
+const windowWidth = Dimensions.get("window").width;
+
 
 // this component is for both text "Til baka" button and the circle one on the map, for the circle one use prop backCircle="true"
 const BackButton = (props) => {
@@ -16,16 +25,19 @@ const BackButton = (props) => {
       <TouchableOpacity
         onPress={() => {
           navigation.goBack();
-        }}
-        style={props.backCircle ? styles.backCircle : styles.backText}
-      >
-        <Image
-          source={
-            props.backCircle
-              ? require("../assets/backCircle.png")
-              : require("../assets/backArrow.png")
-          }
-        />
+        }}      
+      > 
+    <View style={styles.backButton}>
+    <Icon
+      name="chevron-left"
+      type="font-awesome"
+      color={"#FFFDF6"}
+      size={25}
+    />
+    <Text style={styles.backButtonText}>
+      Til baka
+    </Text>
+    </View>
       </TouchableOpacity>
     </SafeAreaView>
   );
@@ -34,6 +46,18 @@ const BackButton = (props) => {
 export default BackButton;
 
 const styles = StyleSheet.create({
+  backButton:{
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  backButtonText: {
+    color: "#FFFDF6",
+    fontFamily: "poppinsLight",
+    fontSize: 20,
+    marginLeft: windowWidth / 40,
+    marginTop: windowWidth / 150,
+
+  }, 
   backText: {},
   backCircle: {},
 });
