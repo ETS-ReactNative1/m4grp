@@ -26,9 +26,9 @@ const HomeScreen = () => {
       <View style={styles.userCont}>
         <Image
           style={styles.userImg}
-          source={require("../assets/placeholder.png")}
+          source={{ uri: auth.currentUser.photoURL }}
         />
-        <Text style={styles.decorativeH1}>{auth.currentUser?.email}!</Text>
+        <Text style={styles.decorativeH1}>{auth.currentUser?.displayName}</Text>
         <Text style={styles.decorativeH2}>Staðsetning Þín</Text>
       </View>
       <PointsArea points={120} boxes={12} />
