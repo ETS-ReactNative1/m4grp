@@ -21,6 +21,7 @@ const windowHeight = Dimensions.get("window").height;
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
+  const [displayName, setDisplayName] = useState("");
   const [password, setPassword] = useState("");
 
   const navigation = useNavigation();
@@ -40,7 +41,11 @@ const LoginScreen = () => {
       .createUserWithEmailAndPassword(email, password)
       .then((userCredentials) => {
         const user = userCredentials.user;
-        console.log("Registered with:", user.email);
+        user.updateProfile({
+          displayName: displayName,
+          photoURL:
+            "https://firebasestorage.googleapis.com/v0/b/seeds-dc572.appspot.com/o/placeholder.png?alt=media&token=50712388-4079-4be1-9b9b-265ece5e2114",
+        });
       })
       .catch((error) => alert(error.message));
   };
@@ -64,11 +69,14 @@ const LoginScreen = () => {
           </TouchableOpacity>
         </View>
 
-        <View>
-          <Text style={styles.emailLoginText}>Or make a new account</Text>
-        </View>
-
+        <Text style={styles.emailLoginText}>Or make a new account</Text>
         <View style={styles.inputContainer}>
+          <TextInput
+            placeholder="Name"
+            value={displayName}
+            onChangeText={(text) => setDisplayName(text)}
+            style={styles.input}
+          />
           <TextInput
             placeholder="Email"
             value={email}
@@ -97,7 +105,7 @@ const LoginScreen = () => {
           </TouchableOpacity>
         </View>
         <View style={styles.hyperlinkContainer}>
-          <Text> Have an accoun? </Text>
+          <Text> Have an account? </Text>
           <TouchableOpacity
             onPress={() => {
               navigation.navigate("Login");
@@ -119,9 +127,9 @@ export default LoginScreen;
 
 const styles = StyleSheet.create({
   betulaleaf: {
-    transform: [{ rotateY: "0deg" }, { rotateZ: "-69.72deg" }],
+    transform: [{ rotateY: "0deg" }, { rotateZ: "-90.72deg" }],
     position: "absolute",
-    marginTop: windowHeight / 200,
+    marginTop: windowHeight > 700 ? windowHeight / 70 : -100,
   },
   body: {
     backgroundColor: "#30361E",
@@ -133,7 +141,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFDF6",
     flex: 1,
     alignItems: "center",
-    marginTop: windowHeight / 6,
+    marginTop: windowHeight > 700 ? windowHeight / 6 : windowHeight / 17,
   },
   headerText: {
     color: "#30361E",
@@ -180,7 +188,7 @@ const styles = StyleSheet.create({
   },
   hyperlinkContainer: {
     position: "absolute",
-    marginTop: windowHeight / 1.4,
+    marginTop: windowHeight > 700 ? windowHeight / 1.4 : windowHeight - 100,
     flexDirection: "row",
     fontFamily: "degularDisplay",
   },

@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
-  TouchableOpacity,
   Text,
   Image,
   View,
   StyleSheet,
   Dimensions,
   Switch,
+  Modal,
+  Pressable,
+  TextInput,
 } from "react-native";
 import { auth } from "../config/firebase";
 import { ScrollView } from "react-native-gesture-handler";
@@ -29,7 +31,6 @@ const ListLine = (props) => {
         <Switch
           onValueChange={toggleSwitch}
           value={isEnabled}
-          // style={{ width: 40, height: 24 }}
           style={{ marginBottom: 5, marginTop: 5 }}
         />
       </View>
@@ -48,6 +49,26 @@ const ListLine = (props) => {
 };
 
 const SettingsScreen = () => {
+  const [modalVisible, setModalVisible] = useState(false);
+  const [displayName, setDisplayName] = useState("");
+  const [photoURL, setPhotoURL] = useState("");
+
+  const updateDisplayName = () => {
+    auth.currentUser.updateProfile({
+      displayName: displayName,
+    });
+    setModalVisible(!modalVisible);
+  };
+
+  const updateProfilePicture = (url) => {
+    setPhotoURL(url);
+    auth.currentUser.updateProfile({
+      photoURL: photoURL,
+    });
+    setModalVisible(!modalVisible);
+  };
+
+  useEffect(() => {}, [modalVisible]);
   const navigation = useNavigation();
   const handleSignOut = () => {
     auth
@@ -61,11 +82,14 @@ const SettingsScreen = () => {
   return (
     <View style={styles.body}>
       <View style={styles.userCont}>
-        <Image
-          style={styles.userImg}
-          source={require("../assets/placeholder.png")}
-        />
-        <Text style={styles.decorativeH1}>{auth.currentUser?.email}!</Text>
+        <View style={styles.userImgContainer}>
+          <Image
+            style={styles.userImg}
+            source={{ uri: auth.currentUser.photoURL }}
+          />
+          <Text style={styles.photoText}>Edit Photo</Text>
+        </View>
+        <Text style={styles.decorativeH1}>{auth.currentUser.displayName}</Text>
       </View>
       <ScrollView style={{ paddingBottom: 20 }}>
         <Text style={styles.listTitle}>ALLOW APP TO ACCESS</Text>
@@ -77,17 +101,55 @@ const SettingsScreen = () => {
         </View>
         <Text style={styles.listTitle}>PROFILE INFORMATION</Text>
         <View style={styles.list}>
-          <ListLine name="Camera" mode="arrow" />
-          <ListLine name="Location" mode="arrow" />
-          <ListLine name="Notifications" mode="arrow" />
-          <ListLine name="Mobile Data" mode="arrow" />
+          <Pressable onPress={() => setModalVisible(!modalVisible)}>
+            <ListLine name="Change Display Name" mode="arrow" />
+          </Pressable>
+          <ListLine name="Change Email" mode="arrow" />
+          <ListLine name="Change Password" mode="arrow" />
+          <ListLine name="Region" mode="arrow" />
         </View>
-        <TouchableOpacity onPress={handleSignOut} style={styles.signOutBtn}>
+        <Pressable onPress={handleSignOut} style={styles.signOutBtn}>
           <Text style={styles.logOutText}>Skrá út</Text>
           <Icon name="logout" type="materialIcons" color="#fffdf7" size={20} />
-        </TouchableOpacity>
+        </Pressable>
         <View style={{ height: 30 }} />
       </ScrollView>
+
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          setModalVisible(!modalVisible);
+        }}
+      >
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>Update Display Name</Text>
+            <TextInput
+              placeholder="Name"
+              value={displayName}
+              onChangeText={(text) => setDisplayName(text)}
+              style={styles.input}
+            />
+            <Pressable
+              style={[styles.modalBtn]}
+              onPress={() => {
+                updateDisplayName();
+              }}
+            >
+              <Text style={styles.textStyle}>Update Name</Text>
+            </Pressable>
+            <Pressable
+              style={[styles.modalBtn]}
+              onPress={() => setModalVisible(!modalVisible)}
+            >
+              <Text style={styles.textStyle}>Cancel</Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 };
@@ -102,16 +164,29 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFDF6",
     flex: 1,
   },
+  // USER INFO AREA
   userCont: {
     alignItems: "center",
     marginTop: 10,
   },
   userImg: {
-    width: windowWidth / 2.7,
-    height: windowWidth / 2.7,
+    width: windowWidth / 4,
+    height: windowWidth / 4,
     borderRadius: 99,
     alignItems: "center",
     justifyContent: "center",
+  },
+  photoText: {
+    fontSize: windowWidth / 40,
+    fontFamily: "poppinsLight",
+    backgroundColor: "rgba(255, 255, 255, 0.6)",
+    position: "absolute",
+    height: windowWidth / 10,
+    width: windowWidth / 4,
+    bottom: -5,
+    paddingTop: windowHeight / 80,
+    textAlign: "center",
+    color: "#464646",
   },
   decorativeH1: {
     fontFamily: "degularDisplay",
@@ -122,6 +197,7 @@ const styles = StyleSheet.create({
     lineHeight: 43,
     textAlign: "left",
   },
+  // LIST AREA
   list: {
     width: windowWidth - 74,
     paddingLeft: 20,
@@ -149,6 +225,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontFamily: "poppinsLight",
   },
+  // Sign Out Button
   signOutBtn: {
     width: 148,
     height: 48,
@@ -166,5 +243,59 @@ const styles = StyleSheet.create({
     right: 10,
     fontFamily: "degularDisplay",
     fontSize: 24,
+  },
+
+  // Modal style
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  input: {
+    backgroundColor: "#FFFDF6",
+    color: "#30361E",
+    fontFamily: "degularDisplay",
+    fontSize: 18,
+    borderWidth: 2,
+    marginBottom: 15,
+    height: 60,
+    width: windowWidth / 1.5,
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    borderRadius: 16,
+  },
+  modalBtn: {
+    width: 148,
+    borderRadius: 99,
+    padding: 10,
+    elevation: 2,
+    backgroundColor: "#434B2A",
+    marginVertical: 8,
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center",
+    fontSize: 16,
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center",
   },
 });

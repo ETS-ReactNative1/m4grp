@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Image } from "react-native";
+import { View } from "react-native";
 import * as Location from "expo-location";
-// This is for changing the sun into a svg, because the current sun is not transparent. 
+// This is for changing the sun into a svg, because the current sun is not transparent.
 import SunImage from "./Images/SunImage";
 
 // Takes in a string with the format of hh:mm:ss and returns the value in seconds
@@ -79,7 +79,7 @@ const Sun = () => {
       sunSetSecs = convertTime12to24(sunSet);
       const data = percentage(currentTimeToSeconds(), sunSetSecs);
       console.log(data);
-      setPercentOfDay(data);
+      setPercentOfDay(95);
       percentOfDay > 0 && percentOfDay < 100
         ? setSunDisplay("flex")
         : setSunDisplay("none");
@@ -91,17 +91,16 @@ const Sun = () => {
       position: "absolute",
       display: sunDisplay,
       top: Math.abs(percentOfDay - 50) * 8,
-      left: percentOfDay * 2,
+      left: percentOfDay * 3 - 100,
       width: 300,
       height: 300,
     },
   };
 
   return (
-    <Image
-      style={styles.container}
-      source={require("../assets/sun.png")}
-    ></Image>
+    <View style={styles.container}>
+      <SunImage />
+    </View>
   );
 };
 
