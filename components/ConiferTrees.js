@@ -11,6 +11,9 @@ import { useNavigation } from "@react-navigation/core";
 import { ScrollView } from "react-native-gesture-handler";
 import Stafafura from "./treeInfo/coniferTrees/Stafafura";
 
+import Stafafura from "./treeInfo/coniferTrees/Stafafura";
+import Ilmbjork from "./treeInfo/leafyTrees/Ilmbjork";
+
 const windowWidth = Dimensions.get("window").width;
 
 const ConiferTrees = () => {
@@ -67,6 +70,7 @@ const ConiferTrees = () => {
                 source={require("../assets/Evropulerki.png")}
               ></Image>
               <Text style={styles.menuText}>Evrópulerkii</Text>
+              <Text style={styles.menuText}>Evrópulerki</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.treeNav}>
               <Image
@@ -120,6 +124,22 @@ const ConiferTrees = () => {
                 });
               }}
             >
+                  treeImage: "../assets/stafafura.png",
+                });
+              }}
+            >
+              <TouchableOpacity
+                style={styles.treeNav}
+                onPress={() => {
+                  navigation.navigate("TreeInfo", {
+                    title: "Ilmbjork",
+                    pickingStatus: "Söfnun í gangi",
+                    pickingTime: "Ág-Okt",
+                    Content: <Ilmbjork />,
+                    treeImage: "../assets/mountainash.png",
+                  });
+                }}
+              ></TouchableOpacity>
               <Image
                 style={styles.treeBranchPicture}
                 source={require("../assets/Fjallalerki.png")}
