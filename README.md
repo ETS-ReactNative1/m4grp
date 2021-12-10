@@ -1,4 +1,3 @@
-![Fræ Logo](./assets/logo.png)
 ## Project 4 - Connecting to the World
 
 ## Table of contents
