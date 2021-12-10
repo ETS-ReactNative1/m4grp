@@ -69,6 +69,7 @@ const ConiferTrees = () => {
                 style={styles.treeBranchPicture}
                 source={require("../assets/Evropulerki.png")}
               ></Image>
+              <Text style={styles.menuText}>Evrópulerkii</Text>
               <Text style={styles.menuText}>Evrópulerki</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.treeNav}>
@@ -120,6 +121,9 @@ const ConiferTrees = () => {
                   pickingStatus: "Söfnun í gangi",
                   pickingTime: "mai-sept",
                   Content: <Stafafura />,
+                });
+              }}
+            >
                   treeImage: "../assets/stafafura.png",
                 });
               }}
