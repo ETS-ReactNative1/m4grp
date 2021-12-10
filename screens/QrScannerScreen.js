@@ -1,19 +1,24 @@
 import React from "react";
-import { Text, StyleSheet, View } from "react-native";
+import { Text, StyleSheet, View, Dimensions } from "react-native";
 import QrCodeScanner from "../components/QrCodeScanner";
 import BackButton from "../components/BackButton";
+
+const windowHeight = Dimensions.get("window").height;
+const windowWidth = Dimensions.get("window").width;
 
 const QrScannerScreen = () => {
   return (
     <>
       <View style={styles.body}>
         <View style={styles.backButtonContainer}>
-          <BackButton style={styles.backButtonContainer} />
+          <BackButton />
+        </View>
+        <View style={{ alignItems: "center" }}>
+          <View style={styles.scanbox}>{/* This is the scanbox */}</View>
         </View>
         <View style={styles.qrCodeTextContainer}>
           <Text style={styles.qrCodeText}>Skannaðu QR Kóðann hér</Text>
         </View>
-        <View style={styles.scanbox}>{/* This is the scanbox */}</View>
       </View>
       <View style={styles.qrScannerCont}>
         <QrCodeScanner />
@@ -27,17 +32,17 @@ export default QrScannerScreen;
 const styles = StyleSheet.create({
   body: {
     position: "relative",
-    alignItems: "center",
     flex: 1,
+    top: 0,
   },
   qrScannerCont: {
     alignItems: "center",
+    bottom: windowHeight / 10,
   },
   qrCodeTextContainer: {
     alignItems: "center",
-    top: 290,
+    top: windowHeight / 10,
     zIndex: 10,
-    position: "absolute",
   },
   qrCodeText: {
     color: "#fff",
@@ -46,18 +51,16 @@ const styles = StyleSheet.create({
     fontFamily: "degularDisplay",
   },
   backButtonContainer: {
-    right: "65%",
-    position: "absolute",
-    top: 100,
+    top: windowHeight / 30,
     zIndex: 10,
   },
   scanbox: {
     borderWidth: 2,
     borderColor: "white",
     borderRadius: 20,
-    height: 317,
-    width: 317,
-    top: 350,
+    height: windowHeight / 3,
+    width: windowHeight / 3,
+    top: windowHeight / 4,
     position: "absolute",
     zIndex: 10,
   },

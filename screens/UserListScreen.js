@@ -63,6 +63,9 @@ const UserListScreen = () => {
   return (
     <>
       <View style={styles.topElement}>
+        <View style={{ left: 16 }}>
+          <BackButton />
+        </View>
         <Text style={styles.headerText}>Samfélagið</Text>
       </View>
       <View style={styles.aboveTabs}></View>
@@ -85,10 +88,11 @@ const styles = StyleSheet.create({
     height: 150,
     backgroundColor: "#30361E",
     marginBottom: -20,
+    paddingTop: 20,
   },
 
   headerText: {
-    marginTop: 50,
+    marginTop: 30,
     marginLeft: 20,
     fontSize: 30,
     color: "#FFFDF6",

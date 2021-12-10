@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/core";
+import BackButton from "./BackButton";
 
 const Forest = () => {
   const navigation = useNavigation();
@@ -30,12 +31,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: "#434B2A",
     borderRadius: 20,
-    paddingVertical: 5, 
+    paddingVertical: 5,
     paddingHorizontal: 15,
     marginTop: -8,
   },
 
   text: {
-    color:'#FFFDF6',
+    color: "#FFFDF6",
   },
 });

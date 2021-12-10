@@ -178,6 +178,7 @@ const ConiferTrees = () => {
                 pickingStatus: "Söfnun í gangi",
                 pickingTime: "mai-sept",
                 Content: <Stafafura />,
+                treeImage: "../assets/stafafura.png",
               });
             }}
           >
@@ -227,6 +228,7 @@ export default ConiferTrees;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#FFFDF7",
+    width: windowWidth,
   },
   treeCard: {
     justifyContent: "center",
