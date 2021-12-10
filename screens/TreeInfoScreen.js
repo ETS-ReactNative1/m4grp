@@ -7,7 +7,7 @@ import PickingCards from "../components/PickingCards";
 const windowWidth = Dimensions.get("window").width;
 
 const TreeInfoScreen = (route) => {
-  const { title, Content, pickingStatus, pickingTime } = route.route.params;
+  const { title, Content, pickingStatus, pickingTime, treeImage} = route.route.params;
   console.log(route.route);
 
   console.log("This is content: " + Content);
@@ -46,7 +46,8 @@ const TreeInfoScreen = (route) => {
           </View>
         </View>
       </View>
-      <Image style={styles.tree} source={require("../assets/stafafura.png")} />
+      <Image style={styles.tree} 
+             source={treeImage} />
       <View style={styles.contentArea}>
         <View>{Content}</View>
       </View>

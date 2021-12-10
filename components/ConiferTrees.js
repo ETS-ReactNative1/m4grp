@@ -1,8 +1,18 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Image, Dimensions } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Image,
+  Dimensions,
+} from "react-native";
 import { useNavigation } from "@react-navigation/core";
 import { ScrollView } from "react-native-gesture-handler";
 import Stafafura from "./treeInfo/coniferTrees/Stafafura";
+
+import Stafafura from "./treeInfo/coniferTrees/Stafafura";
+import Ilmbjork from "./treeInfo/leafyTrees/Ilmbjork";
 
 const windowWidth = Dimensions.get("window").width;
 
@@ -36,61 +46,56 @@ const ConiferTrees = () => {
           </Text>
         </View>
         <ScrollView horizontal={true}>
-        <View style={styles.treeCard}>
-          <TouchableOpacity
-            style={styles.treeNav}
-            onPress={() => {
-              navigation.navigate("TreeInfo", {
-                title: "Stafafura",
-                pickingStatus: "Söfnun í gangi",
-                pickingTime: "mai-sept",
-                Content: <Stafafura />,
-              });
-            }}
-          >
-            <Image 
-            style={styles.treeBranchPicture}
-            source={require("../assets/Fjallalerki.png")}></Image>
-            <Text style={styles.menuText}>Stafafura</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.treeNav}
-          >
-            <Image 
-            style={styles.treeBranchPicture}
-            source={require("../assets/Evropulerki.png")}></Image>
-            <Text style={styles.menuText}>Evrópulerki</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.treeNav}
-          >
-            <Image 
-            style={styles.treeBranchPicture}
-            source={require("../assets/Lindifura.png")}></Image>
-            <Text style={styles.menuText}>Mýralerki</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.treeNav}
-          
-          >
-            <Image 
-            style={styles.treeBranchPicture}
-            source={require("../assets/Stafafura2.png")}></Image>
-            <Text style={styles.menuText}>Hrymur</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.treeNav}
-            
-          >
-            <Image 
-            style={styles.treeBranchPicture}
-            source={require("../assets/Evropulerki2.png")}></Image>
-            <Text style={styles.menuText}>Risalerki</Text>
-          </TouchableOpacity>
-        </View>
+          <View style={styles.treeCard}>
+            <TouchableOpacity
+              style={styles.treeNav}
+              onPress={() => {
+                navigation.navigate("TreeInfo", {
+                  title: "Stafafura",
+                  pickingStatus: "Söfnun í gangi",
+                  pickingTime: "mai-sept",
+                  Content: <Stafafura />,
+                });
+              }}
+            >
+              <Image
+                style={styles.treeBranchPicture}
+                source={require("../assets/Fjallalerki.png")}
+              ></Image>
+              <Text style={styles.menuText}>Stafafura</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.treeNav}>
+              <Image
+                style={styles.treeBranchPicture}
+                source={require("../assets/Evropulerki.png")}
+              ></Image>
+              <Text style={styles.menuText}>Evrópulerki</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.treeNav}>
+              <Image
+                style={styles.treeBranchPicture}
+                source={require("../assets/Lindifura.png")}
+              ></Image>
+              <Text style={styles.menuText}>Mýralerki</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.treeNav}>
+              <Image
+                style={styles.treeBranchPicture}
+                source={require("../assets/Stafafura2.png")}
+              ></Image>
+              <Text style={styles.menuText}>Hrymur</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.treeNav}>
+              <Image
+                style={styles.treeBranchPicture}
+                source={require("../assets/Evropulerki2.png")}
+              ></Image>
+              <Text style={styles.menuText}>Risalerki</Text>
+            </TouchableOpacity>
+          </View>
         </ScrollView>
         <View>
-        <Text style={styles.title}>Fura</Text>
+          <Text style={styles.title}>Fura</Text>
           <Text style={styles.paragraph}>
             Barrtré hafa löng og mjó, nálarlaga eða hreisturlaga laufblöð sem
             eru kölluð barr. Barrið er í raun upprúlluð laufblöð. Flest barrtré
@@ -106,65 +111,76 @@ const ConiferTrees = () => {
           </Text>
         </View>
         <ScrollView horizontal={true}>
-        <View style={styles.treeCard}>
-          <TouchableOpacity
-            style={styles.treeNav}
-            onPress={() => {
-              navigation.navigate("TreeInfo", {
-                title: "Stafafura",
-                pickingStatus: "Söfnun í gangi",
-                pickingTime: "mai-sept",
-                Content: <Stafafura />,
-              });
-            }}
-          >
-            <Image 
-            style={styles.treeBranchPicture}
-            source={require("../assets/Fjallalerki.png")}></Image>
-            <Text style={styles.menuText}>Stafafura</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.treeNav}
-           
-          >
-            <Image 
-            style={styles.treeBranchPicture}
-            source={require("../assets/Stafafura2.png")}></Image>
-            <Text style={styles.menuText}>Lindifura</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.treeNav}
-            
-          >
-            <Image 
-            style={styles.treeBranchPicture}
-            source={require("../assets/Evropulerki2.png")}></Image>
-            <Text style={styles.menuText}>Bergfura</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.treeNav}
-           
-          >
-            <Image 
-            style={styles.treeBranchPicture}
-            source={require("../assets/Evropulerki.png")}></Image>
-            <Text style={styles.menuText}>Bosníufura</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.treeNav}
-          
-          >
-            <Image 
-            style={styles.treeBranchPicture}
-            source={require("../assets/Lindifura.png")}></Image>
-            <Text style={styles.menuText}>Gráfura</Text>
-          </TouchableOpacity>
-        </View>
+          <View style={styles.treeCard}>
+            <TouchableOpacity
+              style={styles.treeNav}
+              onPress={() => {
+                navigation.navigate("TreeInfo", {
+                  title: "Stafafura",
+                  pickingStatus: "Söfnun í gangi",
+                  pickingTime: "mai-sept",
+                  Content: <Stafafura />,
+                  treeImage: "../assets/stafafura.png",
+                });
+              }}
+            >
+              <TouchableOpacity
+                style={styles.treeNav}
+                onPress={() => {
+                  navigation.navigate("TreeInfo", {
+                    title: "Ilmbjork",
+                    pickingStatus: "Söfnun í gangi",
+                    pickingTime: "Ág-Okt",
+                    Content: <Ilmbjork />,
+                    treeImage: "../assets/mountainash.png",
+                  });
+                }}
+              ></TouchableOpacity>
+              <Image
+                style={styles.treeBranchPicture}
+                source={require("../assets/Fjallalerki.png")}
+              ></Image>
+              <Text style={styles.menuText}>Stafafura</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.treeNav}>
+              <Image
+                style={styles.treeBranchPicture}
+                source={require("../assets/Stafafura2.png")}
+              ></Image>
+              <Text style={styles.menuText}>Lindifura</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.treeNav}>
+              <Image
+                style={styles.treeBranchPicture}
+                source={require("../assets/Evropulerki2.png")}
+              ></Image>
+              <Text style={styles.menuText}>Bergfura</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.treeNav}>
+              <Image
+                style={styles.treeBranchPicture}
+                source={require("../assets/Evropulerki.png")}
+              ></Image>
+              <Text style={styles.menuText}>Bosníufura</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.treeNav}>
+              <Image
+                style={styles.treeBranchPicture}
+                source={require("../assets/Lindifura.png")}
+              ></Image>
+              <Text style={styles.menuText}>Gráfura</Text>
+            </TouchableOpacity>
+          </View>
         </ScrollView>
         <View>
-        <Text style={styles.title}>Greni</Text>
+          <Text style={styles.title}>Greni</Text>
           <Text style={styles.paragraph}>
-          Birkið er auðþekkt á smágerðu, tenntu laufi og ljósum pappírskenndum berki. Á Íslandi eru tvær birkitegundir innlendar og jafnframt mjög einkennandi fyrir íslenska náttúru: ilmbjörk (birki í daglegu tali) og fjalldrapi. Ilmbjörkin er eina innlenda tré landsins sem myndar skóga. Við landnám er talið að allt að þriðjungur Íslands hafi verið þakinn birkiskógi, jafnvel allt að 40% landsins.
+            Birkið er auðþekkt á smágerðu, tenntu laufi og ljósum pappírskenndum
+            berki. Á Íslandi eru tvær birkitegundir innlendar og jafnframt mjög
+            einkennandi fyrir íslenska náttúru: ilmbjörk (birki í daglegu tali)
+            og fjalldrapi. Ilmbjörkin er eina innlenda tré landsins sem myndar
+            skóga. Við landnám er talið að allt að þriðjungur Íslands hafi verið
+            þakinn birkiskógi, jafnvel allt að 40% landsins.
           </Text>
         </View>
       </View>
@@ -181,50 +197,43 @@ const ConiferTrees = () => {
               });
             }}
           >
-            <Image 
-            style={styles.treeBranchPicture}
-            source={require("../assets/Fjallalerki.png")}></Image>
+            <Image
+              style={styles.treeBranchPicture}
+              source={require("../assets/Fjallalerki.png")}
+            ></Image>
             <Text style={styles.menuText}>Stafafura</Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.treeNav}
-            
-          >
-            <Image 
-            style={styles.treeBranchPicture}
-            source={require("../assets/Evropulerki2.png")}></Image>
+          <TouchableOpacity style={styles.treeNav}>
+            <Image
+              style={styles.treeBranchPicture}
+              source={require("../assets/Evropulerki2.png")}
+            ></Image>
             <Text style={styles.menuText}>Sitkagreni</Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.treeNav}
-            
-          >
-            <Image 
-            style={styles.treeBranchPicture}
-            source={require("../assets/Lindifura.png")}></Image>
+          <TouchableOpacity style={styles.treeNav}>
+            <Image
+              style={styles.treeBranchPicture}
+              source={require("../assets/Lindifura.png")}
+            ></Image>
             <Text style={styles.menuText}>Blágreni</Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.treeNav}
-            
-          >
-            <Image 
-            style={styles.treeBranchPicture}
-            source={require("../assets/Stafafura2.png")}></Image>
+          <TouchableOpacity style={styles.treeNav}>
+            <Image
+              style={styles.treeBranchPicture}
+              source={require("../assets/Stafafura2.png")}
+            ></Image>
             <Text style={styles.menuText}>Rauðgreni</Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.treeNav}
-            
-          >
-            <Image 
-            style={styles.treeBranchPicture}
-            source={require("../assets/Evropulerki.png")}></Image>
+          <TouchableOpacity style={styles.treeNav}>
+            <Image
+              style={styles.treeBranchPicture}
+              source={require("../assets/Evropulerki.png")}
+            ></Image>
             <Text style={styles.menuText}>Hágráni</Text>
           </TouchableOpacity>
         </View>
-        </ScrollView>
-        <View style={styles.marginBottom}></View>
+      </ScrollView>
+      <View style={styles.marginBottom}></View>
     </ScrollView>
   );
 };
@@ -237,7 +246,7 @@ const styles = StyleSheet.create({
   },
   treeCard: {
     justifyContent: "center",
-    flexDirection: 'row',
+    flexDirection: "row",
   },
   treeBranchPicture: {
     height: 150,
@@ -280,5 +289,5 @@ const styles = StyleSheet.create({
 
   marginBottom: {
     height: 25,
-  }
+  },
 });
